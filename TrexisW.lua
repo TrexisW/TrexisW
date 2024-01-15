@@ -39,6 +39,7 @@ NightMareMode = false
 FirstPressCook = true
 FirstPressJigoku = true
 local Order270 = nil
+local originalPositionofHum = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Position
 local originalWalkSpeed = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
 local originalJumpPower = game.Players.LocalPlayer.Character.Humanoid.JumpPower
 local RegenerationAmount = nil
@@ -92,6 +93,11 @@ local nearestPrompt = nil
 local FirstPress = false
 local success = nil
 _G.Clip = nil
+local GetConnections = function(A, B)
+    for i,v in pairs(getconnections(A[tostring(B)])) do
+        v:Fire()
+    end 
+end
 local function findNearestBase()
     local maxDistance = math.huge
     local nearestTarget
@@ -5943,32 +5949,91 @@ do
         Title = "Auto Run",
         Description = "",
         Callback = function()
-            Tp(98.32, 40, -397.90, nil)
-        end
-    })
-    Tabs.B2C3:AddButton({
-        Title = "Skip",
-        Description = "you dont have to play this section and win faster",
-        Callback = function()
-            
+            _G.Float = true
+            Tp(98.32, 43, -397.90, 0.1)
+            for i, v in pairs(Workspace:GetDescendants()) do
+                if v:IsA("ProximityPrompt") and v.Parent.Name == "MAIN" then
+                    if isPlayerNear(v.Parent, 30) then
+                        fireproximityprompt(v)
+                    end
+                end
+            end
+            task.wait()
+            _G.Float = false
         end
     })
     Tabs.B2C3:AddSection("Maze")
     Tabs.B2C3:AddButton({
-        Title = "Auto Win",
+        Title = "Auto Craft",
         Description = "",
         Callback = function()
+            for i, v in pairs(Workspace:GetDescendants()) do
+                if v:IsA("ProximityPrompt") and v.Parent.Name == "Hole" then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                    task.wait(0.3)
+                    fireproximityprompt(v)
+                end
+            end
+            Tp(-78.38977813720703, 3.999999523162842, -442.6703186035156, 1)
+            for i, v in pairs(Workspace:GetDescendants()) do
+                if v:IsA("ProximityPrompt") and v.Parent.Name == "RootPart" and v.Parent.Parent.Name == "Monster" and isPlayerNear(v.Parent, 30) then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                    task.wait(0.3)
+                    fireproximityprompt(v)
+                    task.wait()
+                    break
+                end
+            end
+            task.wait()
+            local args = {
+                [1] = 0,
+                [2] = {
+                    ["__args"] = {},
+                    ["__tree"] = {
+                        [1] = "CraftingService",
+                        [2] = "Interact"
+                    },
+                    ["__callType"] = 0
+                }
+            }
             
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Packet"):WaitForChild("PacketFunction"):InvokeServer(unpack(args))
+            task.wait()
+            game:GetService("Players").LocalPlayer.PlayerGui.Crafting.Frame.Visible = false
         end
     })
     Tabs.B2C3:AddButton({
-        Title = "Skip",
-        Description = "you dont have to play this section and win faster",
+        Title = "Auto Get Fire",
+        Description = "",
         Callback = function()
-            
+            for i, v in pairs(Workspace:GetDescendants()) do
+                if v:IsA("ProximityPrompt") and v.Parent.Name == "UndyingFlame" then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                    task.wait(0.3)
+                    fireproximityprompt(v)
+                    task.wait()
+                    break
+                end
+            end
+            task.wait()
+            Tp(-78.38977813720703, 3.999999523162842, -442.6703186035156, 1)            
+        end
+    })
+    Tabs.B2C3:AddButton({
+        Title = "Teleport to exit",
+        Description = "",
+        Callback = function()
+            Tp(-74.25013732910156, 5.26987361907959, -880.4428100585938, nil)          
         end
     })
     Tabs.B2C3:AddSection("Bell")
+    Tabs.B2C3:AddButton({
+        Title = "Enter Zone",
+        Description = "",
+        Callback = function()
+            Tp(-325.5806579589844, 15.388615608215332, -1113.81494140625, nil)          
+        end
+    })
     Tabs.B2C3:AddButton({
         Title = "Kill All Flys",
         Description = "",
@@ -5987,13 +6052,36 @@ do
             end
         end
     })
-    Tabs.B2C3:AddButton({
-        Title = "Auto Open Door",
-        Description = "",
-        Callback = function()
-            
+    local ETOKILLYOURSELF = Tabs.Main:AddToggle("ETOKILLYOURSELF", {Title = "Auto Save Yourself", Default = false })
+
+    ETOKILLYOURSELF:OnChanged(function()
+        while Options.ETOKILLYOURSELF.Value do
+            if game:GetService("Players").LocalPlayer.PlayerGui.QuickTime.GrabbedUI.Visible then
+                repeat 
+                    keyPress(Enum.KeyCode.E)
+                    task.wait()
+                until not game:GetService("Players").LocalPlayer.PlayerGui.QuickTime.GrabbedUI.Visible
+            end
+            task.wait()
         end
-    })
+    end)
+    local AUTODETECTSQUID = Tabs.Main:AddToggle("AUTODETECTSQUID", {Title = "Teleport to safe spot when YIELD", Default = false })
+
+    AUTODETECTSQUID:OnChanged(function()
+        while Options.AUTODETECTSQUID.Value do
+            originalPositionofHum = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Position
+            task.wait()
+            if game:GetService("Players").LocalPlayer.PlayerGui.DodomekiUI:FindFirstChild("TextHolder") then
+                repeat 
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X, game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y+60, game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)
+                    task.wait()
+                until not game:GetService("Players").LocalPlayer.PlayerGui.DodomekiUI:FindFirstChild("TextHolder")
+                task.wait()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPositionofHum)
+            end
+            task.wait()
+        end
+    end)
     --TWT
     Tabs.TWT:AddSection("Tutorial")
     Tabs.TWT:AddButton({
