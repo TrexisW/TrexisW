@@ -515,8 +515,8 @@ do
             task.wait()
         end
     end)
-    local AutoGifts = Tabs.Event:AddToggle("AutoGifts", {Title = "Auto Gifts", Default = false })
-    AutoGifts:OnChanged(function(Value)
+    local Autosnowman = Tabs.Event:AddToggle("Autosnowman", {Title = "Auto Snowman", Default = false })
+    Autosnowman:OnChanged(function(Value)
         while Value do
             if not Value then break end
             function spawncarandenter()
