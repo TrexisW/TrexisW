@@ -1,4 +1,3 @@
-_G.Premium = false
 repeat task.wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer
 local Premium = _G.Premium
 _G.Hwid = nil
@@ -63,6 +62,7 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
+    Event = Window:AddTab({ Title = "Event", Icon = "" }),
     Main = Window:AddTab({ Title = "Home", Icon = "rbxassetid://14521909814" }),
     PlayerTab = Window:AddTab({ Title = "Player", Icon = "rbxassetid://14521917581" }),
     Auto = Window:AddTab({ Title = "Autofarm", Icon = "rbxassetid://14521921370" }),
@@ -137,6 +137,19 @@ end
 function Teleport(x, y, z, waittime)
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(x, y, z);
 	task.wait(waittime);
+end
+function isPlayerNear(part,distance)
+    local distanceThreshold = distance
+    local distance = (part.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude
+    return distance <= distanceThreshold
+end
+function GetGifts(value)
+    for _, v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Root" and v.Parent.Name == "Gift" and v.Parent.Box.Transparency == 0 and isPlayerNear(v, value) then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+            task.wait()
+        end
+    end
 end
 function Click(key, waittime, postwaittime)
 	vim:SendKeyEvent(true, key, false, game);
@@ -427,6 +440,103 @@ end
 
 textButton.MouseButton1Click:Connect(onButtonClick)
 do
+    Tabs.Event:AddSection("Event")
+    local AutoGifts = Tabs.Event:AddToggle("AutoGifts", {Title = "Auto Gifts", Default = false })
+    AutoGifts:OnChanged(function(Value)
+        while Value do
+            InstaTeleport(-1860.198974609375, 70.77412414550781, 1115.3355712890625, true);
+            if not Value then
+                break
+            end
+            task.wait()
+            GetGifts(500)
+            if not Value then
+                break
+            end
+            task.wait()
+            InstaTeleport(-1920.1544189453125, 280.5899658203125, 2243.000244140625, true);
+            if not Value then
+                break
+            end
+            task.wait()
+            GetGifts(500)
+            if not Value then
+                break
+            end
+            task.wait()
+            InstaTeleport(-1972.151611328125, 47.39363098144531, -660.4727783203125, true);
+            if not Value then
+                break
+            end
+            task.wait()
+            GetGifts(500)
+            if not Value then
+                break
+            end
+            task.wait()
+            InstaTeleport(-1972.151611328125, 47.39363098144531, -660.4727783203125, true);
+            if not Value then
+                break
+            end
+            task.wait()
+            GetGifts(700)
+            if not Value then
+                break
+            end
+            task.wait()
+            InstaTeleport(1382.27490234375, 201.26947021484375, 171.58139038085938, true);
+            if not Value then
+                break
+            end
+            task.wait()
+            GetGifts(500)
+            if not Value then
+                break
+            end
+            task.wait()
+            InstaTeleport(1704.7178955078125, 115.72215270996094, 790.8916015625 , true);
+            if not Value then
+                break
+            end
+            task.wait()
+            GetGifts(500)
+            if not Value then
+                break
+            end
+            task.wait()
+            InstaTeleport(526.636474609375, 188.7407989501953, 2229.31884765625, true);
+            if not Value then
+                break
+            end
+            task.wait()
+            GetGifts(700)
+            if not Value then
+                break
+            end
+            task.wait()
+            InstaTeleport(-511.5860900878906, 31.67508888244629, -1612.065673828125, true);
+            if not Value then
+                break
+            end
+            task.wait()
+            GetGifts(500)
+            if not Value then
+                break
+            end
+            task.wait()
+            InstaTeleport(381.21258544921875, 90.52862548828125, 1047.6527099609375, true);
+            if not Value then
+                break
+            end
+            task.wait()
+            GetGifts(300)
+            if not Value then
+                break
+            end
+            task.wait()
+        end
+    end)
+
     Tabs.Main:AddSection("Main")
     local Toggle = Tabs.Main:AddToggle("noetogg", {Title = "No E Cooldown", Default = false })
     Toggle:OnChanged(function(Value)
