@@ -531,15 +531,18 @@ do
             spawncarandenter()
             repeat
                 task.wait();
-            until game.Players.LocalPlayer.Character.Humanoid.SeatPart 
+            until game.Players.LocalPlayer.Character.Humanoid.SeatPart
             for _, v in pairs(workspace.Destructibles.Snowman:GetChildren()) do
-                if v and v["Cube.001"] then
+                if v and v:IsA("Model") then
+                    local SnowmanP = v:FindFirstChild("Cube.001")
                     if not Value then break end
-                    p = game.Players.LocalPlayer.Character.HumanoidRootPart.Position;
-                    cartp(p.X, 1000, p.Z, 200);
-                    cartp(v["Cube.001"].Position.X, 1000, v["Cube.001"].Position.Z, 200);
-                    cartp(v["Cube.001"].Position.X, v["Cube.001"].Position.Y, v["Cube.001"].Position.Z, 200);
-                    task.wait()
+                    if SnowmanP and SnowmanP:IsA("BasePart") then
+                        p = game.Players.LocalPlayer.Character.HumanoidRootPart.Position;
+                        cartp(p.X, 1000, p.Z, 200);
+                        cartp(v["Cube.001"].Position.X, 1000, v["Cube.001"].Position.Z, 700);
+                        cartp(v["Cube.001"].Position.X, v["Cube.001"].Position.Y, v["Cube.001"].Position.Z, 200);
+                        task.wait()
+                    end
                 end
             end
             task.wait()
