@@ -528,10 +528,12 @@ do
                 Click(Enum.KeyCode.E, 0.1, 0.1);
             end
             
+            spawncarandenter()
+            task.wait()
             for _, v in pairs(workspace.Destructibles.Snowman:GetChildren()) do
                 if v and v["Cube.001"] then
                     if not Value then break end
-                    cartp(v.Position.X, v.Position.Y, v.Position.Z, 200);
+                    cartp(v["Cube.001"].Position.X, v["Cube.001"].Position.Y, v["Cube.001"].Position.Z, 200);
                     task.wait()
                 end
             end
