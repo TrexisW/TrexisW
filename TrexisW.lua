@@ -145,9 +145,11 @@ function isPlayerNear(part,distance)
 end
 function GetGifts(value)
     for _, v in pairs(workspace:GetDescendants()) do
-        if v and v.Name == "Root" and v.Parent.Name == "Gift" and v.Parent.Box.Transparency == 0 and isPlayerNear(v, value) then
+        if v and v.Parent and v.Name == "Root" and v.Parent.Name == "Gift" and v.Parent.Box.Transparency == 0 and isPlayerNear(v, value) then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
             task.wait()
+        elseif v and v.Parent and v.Name ~= "Root" and v.Parent.Name ~= "Gift" and v.Parent.Box.Transparency ~= 0 and isPlayerNear(v, value) then
+            break
         end
     end
 end
@@ -457,7 +459,7 @@ do
                 break
             end
             task.wait()
-            InstaTeleport(-1920.1544189453125, 280.5899658203125, 2243.000244140625, true);
+            InstaTeleport(-1920.1544189453125, 280.5899658203125, 2243.000244140625, false);
             if not Value then
                 break
             end
@@ -467,7 +469,7 @@ do
                 break
             end
             task.wait()
-            InstaTeleport(-1972.151611328125, 47.39363098144531, -660.4727783203125, true);
+            InstaTeleport(-1972.151611328125, 47.39363098144531, -660.4727783203125, false);
             if not Value then
                 break
             end
@@ -477,7 +479,7 @@ do
                 break
             end
             task.wait()
-            InstaTeleport(-1972.151611328125, 47.39363098144531, -660.4727783203125, true);
+            InstaTeleport(-1972.151611328125, 47.39363098144531, -660.4727783203125, false);
             if not Value then
                 break
             end
@@ -487,7 +489,7 @@ do
                 break
             end
             task.wait()
-            InstaTeleport(1382.27490234375, 201.26947021484375, 171.58139038085938, true);
+            InstaTeleport(1382.27490234375, 201.26947021484375, 171.58139038085938, false);
             if not Value then
                 break
             end
@@ -497,7 +499,7 @@ do
                 break
             end
             task.wait()
-            InstaTeleport(1704.7178955078125, 115.72215270996094, 790.8916015625 , true);
+            InstaTeleport(1704.7178955078125, 115.72215270996094, 790.8916015625 , false);
             if not Value then
                 break
             end
@@ -507,7 +509,7 @@ do
                 break
             end
             task.wait()
-            InstaTeleport(526.636474609375, 188.7407989501953, 2229.31884765625, true);
+            InstaTeleport(526.636474609375, 188.7407989501953, 2229.31884765625, false);
             if not Value then
                 break
             end
@@ -517,7 +519,7 @@ do
                 break
             end
             task.wait()
-            InstaTeleport(-511.5860900878906, 31.67508888244629, -1612.065673828125, true);
+            InstaTeleport(-511.5860900878906, 31.67508888244629, -1612.065673828125, false);
             if not Value then
                 break
             end
@@ -527,7 +529,7 @@ do
                 break
             end
             task.wait()
-            InstaTeleport(381.21258544921875, 90.52862548828125, 1047.6527099609375, true);
+            InstaTeleport(381.21258544921875, 90.52862548828125, 1047.6527099609375, false);
             if not Value then
                 break
             end
