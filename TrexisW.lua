@@ -444,6 +444,9 @@ do
     local AutoGifts = Tabs.Event:AddToggle("AutoGifts", {Title = "Auto Gifts", Default = false })
     AutoGifts:OnChanged(function(Value)
         while Value do
+            if not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character.HumanoidRootPart then
+                return
+            end
             InstaTeleport(-1860.198974609375, 70.77412414550781, 1115.3355712890625, true);
             if not Value then
                 break
