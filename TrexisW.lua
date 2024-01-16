@@ -3509,7 +3509,6 @@ InterfaceManager:SetFolder("TTJY HUB")
 SaveManager:SetFolder("Mad City")
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 SaveManager:BuildConfigSection(Tabs.Settings)
-Window:SelectTab(1)
 SaveManager:LoadAutoloadConfig()
 
 Tabs.Settings:AddSection("Developer Tools")
