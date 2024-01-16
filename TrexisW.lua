@@ -529,10 +529,15 @@ do
             end
             
             spawncarandenter()
-            task.wait()
+            repeat
+                task.wait();
+            until game.Players.LocalPlayer.Character.Humanoid.SeatPart 
             for _, v in pairs(workspace.Destructibles.Snowman:GetChildren()) do
                 if v and v["Cube.001"] then
                     if not Value then break end
+                    p = game.Players.LocalPlayer.Character.HumanoidRootPart.Position;
+                    cartp(p.X, 1000, p.Z, 200);
+                    cartp(v["Cube.001"].Position.X, 1000, v["Cube.001"].Position.Z, 200);
                     cartp(v["Cube.001"].Position.X, v["Cube.001"].Position.Y, v["Cube.001"].Position.Z, 200);
                     task.wait()
                 end
