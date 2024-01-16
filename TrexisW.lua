@@ -449,96 +449,91 @@ do
     AutoGifts:OnChanged(function(Value)
         while Value do
             if not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character.HumanoidRootPart then
-                return
+                break
             end
             InstaTeleport(-1860.198974609375, 70.77412414550781, 1115.3355712890625, true);
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait(0.5)
             GetGifts(500)
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait()
+            Click("Space", 0.1, 0.1);
             InstaTeleport(-1920.1544189453125, 280.5899658203125, 2243.000244140625, false);
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait(0.5)
             GetGifts(500)
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait()
+            Click("Space", 0.1, 0.1);
             InstaTeleport(-1972.151611328125, 47.39363098144531, -660.4727783203125, false);
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait(0.5)
             GetGifts(500)
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait()
+            Click("Space", 0.1, 0.1);
             InstaTeleport(-1972.151611328125, 47.39363098144531, -660.4727783203125, false);
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait(0.5)
             GetGifts(700)
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait()
+            Click("Space", 0.1, 0.1);
             InstaTeleport(1382.27490234375, 201.26947021484375, 171.58139038085938, false);
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait(0.5)
             GetGifts(500)
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait()
+            Click("Space", 0.1, 0.1);
             InstaTeleport(1704.7178955078125, 115.72215270996094, 790.8916015625 , false);
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait(0.5)
             GetGifts(500)
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait()
+            Click("Space", 0.1, 0.1);
             InstaTeleport(526.636474609375, 188.7407989501953, 2229.31884765625, false);
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait(0.5)
             GetGifts(700)
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait()
+            Click("Space", 0.1, 0.1);
             InstaTeleport(-511.5860900878906, 31.67508888244629, -1612.065673828125, false);
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait(0.5)
             GetGifts(500)
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait()
+            Click("Space", 0.1, 0.1);
             InstaTeleport(381.21258544921875, 90.52862548828125, 1047.6527099609375, false);
-            if not Value then
-                break
-            end
+            if not Value then break end
             task.wait(0.5)
             GetGifts(300)
-            if not Value then
-                break
+            if not Value then break end
+            task.wait()
+        end
+    end)
+    local AutoGifts = Tabs.Event:AddToggle("AutoGifts", {Title = "Auto Gifts", Default = false })
+    AutoGifts:OnChanged(function(Value)
+        while Value do
+            if not Value then break end
+            function spawncarandenter()
+                local ohString1 = "UI";
+                local ohString2 = "SpawnCar";
+                local ohString3 = "Camaro";
+                game:GetService("ReplicatedStorage").Remote.RemoteFunction:InvokeServer(ohString1, ohString2, ohString3);
+                waitforbutton();
+                Click(Enum.KeyCode.E, 0.1, 0.1);
+            end
+            
+            for _, v in pairs(workspace.Destructibles.Snowman:GetChildren()) do
+                if v and v["Cube.001"] then
+                    if not Value then break end
+                    cartp(v.Position.X, v.Position.Y, v.Position.Z, 200);
+                    task.wait()
+                end
             end
             task.wait()
         end
