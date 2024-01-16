@@ -145,12 +145,16 @@ function isPlayerNear(part,distance)
 end
 function GetGifts(value)
     for _, v in pairs(workspace:GetDescendants()) do
-        if v and v.Parent and v.Parent:IsA("Model") and v.Parent.Box and v.Name == "Root" and v.Parent.Name == "Gift" and v.Parent.Box.Transparency == 0 and isPlayerNear(v, value) then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-            task.wait(0.3)
+        if v and v.Parent and v.Parent:IsA("Model") and v.Name == "Root" and v.Parent.Name == "Gift" and isPlayerNear(v, value) then
+            local box = v.Parent:FindFirstChild("Box")
+            if box and box:IsA("BasePart") and box.Transparency == 0 then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                task.wait(0.3)
+            end
         end
     end
 end
+
 function Click(key, waittime, postwaittime)
 	vim:SendKeyEvent(true, key, false, game);
 	task.wait(waittime);
