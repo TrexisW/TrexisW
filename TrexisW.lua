@@ -145,7 +145,7 @@ function isPlayerNear(part,distance)
 end
 function GetGifts(value)
     for _, v in pairs(workspace:GetDescendants()) do
-        if v.Name == "Root" and v.Parent.Name == "Gift" and v.Parent.Box.Transparency == 0 and isPlayerNear(v, value) then
+        if v and v.Name == "Root" and v.Parent.Name == "Gift" and v.Parent.Box.Transparency == 0 and isPlayerNear(v, value) then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
             task.wait()
         end
@@ -448,7 +448,7 @@ do
             if not Value then
                 break
             end
-            task.wait()
+            task.wait(0.5)
             GetGifts(500)
             if not Value then
                 break
@@ -458,7 +458,7 @@ do
             if not Value then
                 break
             end
-            task.wait()
+            task.wait(0.5)
             GetGifts(500)
             if not Value then
                 break
@@ -468,7 +468,7 @@ do
             if not Value then
                 break
             end
-            task.wait()
+            task.wait(0.5)
             GetGifts(500)
             if not Value then
                 break
@@ -478,7 +478,7 @@ do
             if not Value then
                 break
             end
-            task.wait()
+            task.wait(0.5)
             GetGifts(700)
             if not Value then
                 break
@@ -488,7 +488,7 @@ do
             if not Value then
                 break
             end
-            task.wait()
+            task.wait(0.5)
             GetGifts(500)
             if not Value then
                 break
@@ -498,7 +498,7 @@ do
             if not Value then
                 break
             end
-            task.wait()
+            task.wait(0.5)
             GetGifts(500)
             if not Value then
                 break
@@ -508,7 +508,7 @@ do
             if not Value then
                 break
             end
-            task.wait()
+            task.wait(0.5)
             GetGifts(700)
             if not Value then
                 break
@@ -518,7 +518,7 @@ do
             if not Value then
                 break
             end
-            task.wait()
+            task.wait(0.5)
             GetGifts(500)
             if not Value then
                 break
@@ -528,7 +528,7 @@ do
             if not Value then
                 break
             end
-            task.wait()
+            task.wait(0.5)
             GetGifts(300)
             if not Value then
                 break
