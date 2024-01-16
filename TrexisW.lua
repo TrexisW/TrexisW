@@ -148,7 +148,7 @@ function GetGifts(value)
         if v and v.Parent and v.Parent:FindFirstChild("Box") and v.Name == "Root" and v.Parent.Name == "Gift" and v.Parent.Box.Transparency == 0 and isPlayerNear(v, value) then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
             task.wait()
-        else
+        elseif not v or not v.Parent or not v.Parent:FindFirstChild("Box") then
             break
         end
     end
