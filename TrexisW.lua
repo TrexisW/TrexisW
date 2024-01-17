@@ -27,6 +27,227 @@ else
     --game.Players.LocalPlayer:Kick("Premium User Only")
 end
 task.wait()
+-- Create a ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Name = "MimicConsole"
+gui.Parent = game.CoreGui
+
+-- Create a Frame for the background with an offset on the Y axis
+local background = Instance.new("Frame")
+background.Size = UDim2.new(1, 0, 1, 0) -- Increased Y size for offset
+background.Position = UDim2.new(0, 0, 0, 0) -- Offset on the Y axis
+background.BackgroundColor3 = Color3.new(0, 0, 0)
+background.BorderSizePixel = 0
+background.Parent = gui
+
+-- Create a TextLabel for the title
+local title = Instance.new("TextLabel")
+title.Text = "The Mimic Console"
+title.TextColor3 = Color3.new(1, 0, 0)
+title.Size = UDim2.new(0, 200, 0, 50)
+title.Position = UDim2.new(0.5, -100, 0, 10)
+title.Font = Enum.Font.SourceSansBold
+title.BackgroundTransparency = 1
+title.TextSize = 20
+title.Parent = gui
+
+-- Create a Frame to hold text elements
+local textHolder = Instance.new("Frame")
+textHolder.Size = UDim2.new(0.8, 0, 0.6, 0)
+textHolder.Position = UDim2.new(0.1, 0, 0.15, 0)
+textHolder.BackgroundColor3 = Color3.new(0, 0, 0)
+textHolder.BackgroundTransparency = 0
+textHolder.BorderSizePixel = 3
+textHolder.BorderMode = Enum.BorderMode.Inset
+textHolder.BorderColor3 = Color3.new(0, 1, 0)
+textHolder.Parent = gui
+
+-- Create a TextLabel for the console output with a green background
+local consoleOutput = Instance.new("TextLabel")
+consoleOutput.Size = UDim2.new(1, 0, 0, 20)
+consoleOutput.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+consoleOutput.TextColor3 = Color3.new(0, 1, 0)
+consoleOutput.BorderSizePixel = 0
+consoleOutput.TextWrapped = true
+consoleOutput.TextXAlignment = Enum.TextXAlignment.Left -- Align text to the left
+consoleOutput.Parent = textHolder
+
+-- Create another TextLabel with a green background (you can add more dynamically)
+local additionalTextLabel = Instance.new("TextLabel")
+additionalTextLabel.Size = UDim2.new(1, 0, 0, 20)
+additionalTextLabel.Position = UDim2.new(0, 0, 0.1, 0) -- Adjusted position
+additionalTextLabel.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+additionalTextLabel.TextColor3 = Color3.new(0, 1, 0)
+additionalTextLabel.BorderSizePixel = 0
+additionalTextLabel.TextWrapped = true
+additionalTextLabel.Text = "im gay"
+additionalTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+additionalTextLabel.Parent = textHolder
+
+consoleOutput.Text = "Waiting for game to load."
+task.wait(0.5)
+consoleOutput.Text = "Waiting for game to load. ."
+task.wait(0.5)
+consoleOutput.Text = "Waiting for game to load. . ."
+additionalTextLabel.Visible = false
+repeat task.wait() until not game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored
+additionalTextLabel.Visible = true
+additionalTextLabel.Text = "Auto load 0%"
+for i = 1, 100 do
+    additionalTextLabel.Text = "Auto load " .. i .. "%"
+    wait(0.1)
+end
+task.wait()
+
+local additionalTextLabel2 = Instance.new("TextLabel")
+additionalTextLabel2.Size = UDim2.new(1, 0, 0, 20)
+additionalTextLabel2.Position = UDim2.new(0, 0, 0.1, 0) -- Adjusted position
+additionalTextLabel2.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+additionalTextLabel2.TextColor3 = Color3.new(0, 1, 0)
+additionalTextLabel2.BorderSizePixel = 0
+additionalTextLabel2.TextWrapped = true
+additionalTextLabel2.Text = "Bypassing Anti Cheat"
+additionalTextLabel2.TextXAlignment = Enum.TextXAlignment.Left
+additionalTextLabel2.Parent = textHolder
+
+local SuccessBypsss = false
+coroutine.wrap(function()
+    while not SuccessBypsss do
+        additionalTextLabel2.Text = "Bypassing Anti Cheat"
+        task.wait(0.3)
+        additionalTextLabel2.Text = "Bypassing Anti Cheat. ."
+        task.wait(0.3)
+        additionalTextLabel2.Text = "Bypassing Anti Cheat. . ."
+        task.wait(0.3)
+        if SuccessBypsss then
+            additionalTextLabel2.Text = "Successfully Bypass Anti Cheat"
+        end
+        task.wait()
+    end
+end)()
+
+function Byfrosent(call)
+    if typeof(call) ~= "table" then 
+        return
+    end 
+    if call[1] == "Clear" then 
+        if not hookmetamethod then 
+            return "your executor not support to using anti-cheat-bypass [PH 2.1 Byfrosent - N Verison]"
+        end
+        local Players = game:GetService('Players')
+        local LocalPlayer = Players.LocalPlayer
+        local oldIndex1
+        local oldIndex2
+        oldIndex1 = hookmetamethod(game, "__index", function(self, method)
+            if self == LocalPlayer and method:lower() == "kick" then
+                return error("Expected ':' not '.' calling member function Kick", 2) -- bypass line
+            end
+            return oldIndex1(self, method)
+        end)
+        oldIndex2 = hookmetamethod(game, "__namecall", function(self, ...)
+            if self == LocalPlayer and getnamecallmethod():lower() == "kick" then -- bypass line | lower for lower a code inside that script on client side.
+                return -- return before kick
+            end
+            return oldIndex2(self, ...)
+        end)        
+        print('PH Byfrosent: Successfully hook a kick function currently in game for now!')
+    end 
+end
+
+-- # How To Uses 
+
+Byfrosent({"Clear"})
+task.wait(1)
+function Byfrosent(call)
+    if typeof(call) ~= "table" then 
+        return
+    end 
+    if call[1] == "Clear" then 
+        if not hookmetamethod then 
+            return "your executor not support to using anti-cheat-bypass [PH 2.1 Byfrosent - N Verison]"
+        end
+        local Players = game:GetService('Players')
+        local LocalPlayer = Players.LocalPlayer
+        local oldIndex1
+        local oldIndex2
+        oldIndex1 = hookmetamethod(game, "__index", function(self, method)
+            if self == LocalPlayer and method:lower() == "kick" then
+                return error("Expected ':' not '.' calling member function Kick", 2) -- bypass line
+            end
+            return oldIndex1(self, method)
+        end)
+        oldIndex2 = hookmetamethod(game, "__namecall", function(self, ...)
+            if self == LocalPlayer and getnamecallmethod():lower() == "kick" then -- bypass line | lower for lower a code inside that script on client side.
+                return -- return before kick
+            end
+            return oldIndex2(self, ...)
+        end)        
+        print('PH Byfrosent: Successfully hook a kick function currently in game for now!')
+    end 
+end
+
+-- # How To Uses 
+
+Byfrosent({"Clear"})
+task.wait(1)
+function Byfrosent(call)
+    if typeof(call) ~= "table" then 
+        return
+    end 
+    if call[1] == "Clear" then 
+        if not hookmetamethod then 
+            return "your executor not support to using anti-cheat-bypass [PH 2.1 Byfrosent - N Verison]"
+        end
+        local Players = game:GetService('Players')
+        local LocalPlayer = Players.LocalPlayer
+        local oldIndex1
+        local oldIndex2
+        oldIndex1 = hookmetamethod(game, "__index", function(self, method)
+            if self == LocalPlayer and method:lower() == "kick" then
+                return error("Expected ':' not '.' calling member function Kick", 2) -- bypass line
+            end
+            return oldIndex1(self, method)
+        end)
+        oldIndex2 = hookmetamethod(game, "__namecall", function(self, ...)
+            if self == LocalPlayer and getnamecallmethod():lower() == "kick" then -- bypass line | lower for lower a code inside that script on client side.
+                return -- return before kick
+            end
+            return oldIndex2(self, ...)
+        end)        
+        print('PH Byfrosent: Successfully hook a kick function currently in game for now!')
+    end 
+end
+
+-- # How To Uses 
+
+Byfrosent({"Clear"})
+
+task.wait(1)
+game:GetService("ReplicatedStorage"):WaitForChild("Sampling"):Destroy()
+SuccessBypsss = true
+task.wait(3)
+local additionalTextLabel3 = Instance.new("TextLabel")
+additionalTextLabel3.Size = UDim2.new(1, 0, 0, 20)
+additionalTextLabel3.Position = UDim2.new(0, 0, 0.2, 0) -- Adjusted position
+additionalTextLabel3.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+additionalTextLabel3.TextColor3 = Color3.new(0, 1, 0)
+additionalTextLabel3.BorderSizePixel = 0
+additionalTextLabel3.TextWrapped = true
+additionalTextLabel3.Text = "Loading script and closing console"
+additionalTextLabel3.TextXAlignment = Enum.TextXAlignment.Left
+additionalTextLabel3.Parent = textHolder
+
+local finishload = false
+coroutine.wrap(function()
+    additionalTextLabel3.Text = "Loading script and closing console. "
+    task.wait()
+    additionalTextLabel3.Text = "Loading script and closing console. ."
+    task.wait()
+    repeat task.wait() until finishload
+    gui.Enabled = false
+    task.wait()
+end)()
+task.wait()
 local BALLGIVER
 local tailHitbox
 local LASEROFNAGISA
@@ -8814,8 +9035,29 @@ SaveManager:BuildConfigSection(Tabs.Settings)
 Window:SelectTab(1)
 SaveManager:LoadAutoloadConfig()
 
-                    
+finishload = true
+if game.CoreGui:FindFirstChild("TTJY HUB2") then
+    game.CoreGui:FindFirstChild("TTJY HUB2"):Destroy()
+end
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TTJY HUB2"
+screenGui.Parent = game.CoreGui
+
+local textButton = Instance.new("TextButton")
+textButton.Text = "Console"
+textButton.Size = UDim2.new(0, 100, 0, 50)
+textButton.Position = UDim2.new(0.6, -45, 0, -40)
+textButton.TextColor3 = Color3.new(1, 0, 0)
+textButton.BackgroundColor3 = Color3.new(0, 0, 0)
+textButton.BackgroundTransparency = 0.7
+textButton.Parent = screenGui
+
+local function onButtonClick2()
+    gui.Enabled = not gui.Enabled
+end
+
+textButton.MouseButton1Click:Connect(onButtonClick2)
 
 
 
-print("mimic")
