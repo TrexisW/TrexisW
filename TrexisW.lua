@@ -85,18 +85,13 @@ additionalTextLabel.TextXAlignment = Enum.TextXAlignment.Left
 additionalTextLabel.Parent = textHolder
 
 consoleOutput.Text = "Waiting for game to load."
-task.wait(0.5)
+task.wait()
 consoleOutput.Text = "Waiting for game to load. ."
-task.wait(0.5)
+task.wait()
 consoleOutput.Text = "Waiting for game to load. . ."
 additionalTextLabel.Visible = false
-repeat task.wait() until not game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored
 additionalTextLabel.Visible = true
 additionalTextLabel.Text = "Auto load 0%"
-for i = 1, 100 do
-    additionalTextLabel.Text = "Auto load " .. i .. "%"
-    wait(0.1)
-end
 task.wait()
 
 local additionalTextLabel2 = Instance.new("TextLabel")
@@ -126,104 +121,105 @@ coroutine.wrap(function()
     end
 end)()
 
-function Byfrosent(call)
-    if typeof(call) ~= "table" then 
-        return
-    end 
-    if call[1] == "Clear" then 
-        if not hookmetamethod then 
-            return "your executor not support to using anti-cheat-bypass [PH 2.1 Byfrosent - N Verison]"
-        end
-        local Players = game:GetService('Players')
-        local LocalPlayer = Players.LocalPlayer
-        local oldIndex1
-        local oldIndex2
-        oldIndex1 = hookmetamethod(game, "__index", function(self, method)
-            if self == LocalPlayer and method:lower() == "kick" then
-                return error("Expected ':' not '.' calling member function Kick", 2) -- bypass line
-            end
-            return oldIndex1(self, method)
-        end)
-        oldIndex2 = hookmetamethod(game, "__namecall", function(self, ...)
-            if self == LocalPlayer and getnamecallmethod():lower() == "kick" then -- bypass line | lower for lower a code inside that script on client side.
-                return -- return before kick
-            end
-            return oldIndex2(self, ...)
-        end)        
-        print('PH Byfrosent: Successfully hook a kick function currently in game for now!')
-    end 
-end
-
--- # How To Uses 
-
-Byfrosent({"Clear"})
-task.wait(1)
-function Byfrosent(call)
-    if typeof(call) ~= "table" then 
-        return
-    end 
-    if call[1] == "Clear" then 
-        if not hookmetamethod then 
-            return "your executor not support to using anti-cheat-bypass [PH 2.1 Byfrosent - N Verison]"
-        end
-        local Players = game:GetService('Players')
-        local LocalPlayer = Players.LocalPlayer
-        local oldIndex1
-        local oldIndex2
-        oldIndex1 = hookmetamethod(game, "__index", function(self, method)
-            if self == LocalPlayer and method:lower() == "kick" then
-                return error("Expected ':' not '.' calling member function Kick", 2) -- bypass line
-            end
-            return oldIndex1(self, method)
-        end)
-        oldIndex2 = hookmetamethod(game, "__namecall", function(self, ...)
-            if self == LocalPlayer and getnamecallmethod():lower() == "kick" then -- bypass line | lower for lower a code inside that script on client side.
-                return -- return before kick
-            end
-            return oldIndex2(self, ...)
-        end)        
-        print('PH Byfrosent: Successfully hook a kick function currently in game for now!')
-    end 
-end
-
--- # How To Uses 
-
-Byfrosent({"Clear"})
-task.wait(1)
-function Byfrosent(call)
-    if typeof(call) ~= "table" then 
-        return
-    end 
-    if call[1] == "Clear" then 
-        if not hookmetamethod then 
-            return "your executor not support to using anti-cheat-bypass [PH 2.1 Byfrosent - N Verison]"
-        end
-        local Players = game:GetService('Players')
-        local LocalPlayer = Players.LocalPlayer
-        local oldIndex1
-        local oldIndex2
-        oldIndex1 = hookmetamethod(game, "__index", function(self, method)
-            if self == LocalPlayer and method:lower() == "kick" then
-                return error("Expected ':' not '.' calling member function Kick", 2) -- bypass line
-            end
-            return oldIndex1(self, method)
-        end)
-        oldIndex2 = hookmetamethod(game, "__namecall", function(self, ...)
-            if self == LocalPlayer and getnamecallmethod():lower() == "kick" then -- bypass line | lower for lower a code inside that script on client side.
-                return -- return before kick
-            end
-            return oldIndex2(self, ...)
-        end)        
-        print('PH Byfrosent: Successfully hook a kick function currently in game for now!')
-    end 
-end
-
--- # How To Uses 
-
-Byfrosent({"Clear"})
-
-task.wait(1)
 game:GetService("ReplicatedStorage"):WaitForChild("Sampling"):Destroy()
+task.wait()
+function Byfrosent(call)
+    if typeof(call) ~= "table" then 
+        return
+    end 
+    if call[1] == "Clear" then 
+        if not hookmetamethod then 
+            return "your executor not support to using anti-cheat-bypass [PH 2.1 Byfrosent - N Verison]"
+        end
+        local Players = game:GetService('Players')
+        local LocalPlayer = Players.LocalPlayer
+        local oldIndex1
+        local oldIndex2
+        oldIndex1 = hookmetamethod(game, "__index", function(self, method)
+            if self == LocalPlayer and method:lower() == "kick" then
+                return error("Expected ':' not '.' calling member function Kick", 2) -- bypass line
+            end
+            return oldIndex1(self, method)
+        end)
+        oldIndex2 = hookmetamethod(game, "__namecall", function(self, ...)
+            if self == LocalPlayer and getnamecallmethod():lower() == "kick" then -- bypass line | lower for lower a code inside that script on client side.
+                return -- return before kick
+            end
+            return oldIndex2(self, ...)
+        end)        
+        print('PH Byfrosent: Successfully hook a kick function currently in game for now!')
+    end 
+end
+
+-- # How To Uses 
+
+Byfrosent({"Clear"})
+task.wait(1)
+function Byfrosent(call)
+    if typeof(call) ~= "table" then 
+        return
+    end 
+    if call[1] == "Clear" then 
+        if not hookmetamethod then 
+            return "your executor not support to using anti-cheat-bypass [PH 2.1 Byfrosent - N Verison]"
+        end
+        local Players = game:GetService('Players')
+        local LocalPlayer = Players.LocalPlayer
+        local oldIndex1
+        local oldIndex2
+        oldIndex1 = hookmetamethod(game, "__index", function(self, method)
+            if self == LocalPlayer and method:lower() == "kick" then
+                return error("Expected ':' not '.' calling member function Kick", 2) -- bypass line
+            end
+            return oldIndex1(self, method)
+        end)
+        oldIndex2 = hookmetamethod(game, "__namecall", function(self, ...)
+            if self == LocalPlayer and getnamecallmethod():lower() == "kick" then -- bypass line | lower for lower a code inside that script on client side.
+                return -- return before kick
+            end
+            return oldIndex2(self, ...)
+        end)        
+        print('PH Byfrosent: Successfully hook a kick function currently in game for now!')
+    end 
+end
+
+-- # How To Uses 
+
+Byfrosent({"Clear"})
+task.wait(1)
+function Byfrosent(call)
+    if typeof(call) ~= "table" then 
+        return
+    end 
+    if call[1] == "Clear" then 
+        if not hookmetamethod then 
+            return "your executor not support to using anti-cheat-bypass [PH 2.1 Byfrosent - N Verison]"
+        end
+        local Players = game:GetService('Players')
+        local LocalPlayer = Players.LocalPlayer
+        local oldIndex1
+        local oldIndex2
+        oldIndex1 = hookmetamethod(game, "__index", function(self, method)
+            if self == LocalPlayer and method:lower() == "kick" then
+                return error("Expected ':' not '.' calling member function Kick", 2) -- bypass line
+            end
+            return oldIndex1(self, method)
+        end)
+        oldIndex2 = hookmetamethod(game, "__namecall", function(self, ...)
+            if self == LocalPlayer and getnamecallmethod():lower() == "kick" then -- bypass line | lower for lower a code inside that script on client side.
+                return -- return before kick
+            end
+            return oldIndex2(self, ...)
+        end)        
+        print('PH Byfrosent: Successfully hook a kick function currently in game for now!')
+    end 
+end
+
+-- # How To Uses 
+
+Byfrosent({"Clear"})
+
+task.wait(1)
 SuccessBypsss = true
 task.wait(3)
 local additionalTextLabel3 = Instance.new("TextLabel")
