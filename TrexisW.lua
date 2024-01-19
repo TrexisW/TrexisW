@@ -120,8 +120,9 @@ coroutine.wrap(function()
         task.wait()
     end
 end)()
-
+coroutine.wrap(function()
 game:GetService("ReplicatedStorage"):WaitForChild("Sampling"):Destroy()
+end)()
 task.wait()
 function Byfrosent(call)
     if typeof(call) ~= "table" then 
