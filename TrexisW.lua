@@ -9193,18 +9193,18 @@ if game.CoreGui:FindFirstChild("TTJY HUB2") then
     game.CoreGui:FindFirstChild("TTJY HUB2"):Destroy()
 end
 
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "TTJY HUB2"
-screenGui.Parent = game.CoreGui
+local screenGui77 = Instance.new("ScreenGui")
+screenGui77.Name = "TTJY HUB2"
+screenGui77.Parent = game.CoreGui
 
-local textButton = Instance.new("TextButton")
-textButton.Text = "Console"
-textButton.Size = UDim2.new(0, 100, 0, 50)
-textButton.Position = UDim2.new(0.6, -45, 0, -40)
-textButton.TextColor3 = Color3.new(1, 0, 0)
-textButton.BackgroundColor3 = Color3.new(0, 0, 0)
-textButton.BackgroundTransparency = 0.7
-textButton.Parent = screenGui
+local textButton77 = Instance.new("TextButton")
+textButton77.Text = "Console"
+textButton77.Size = UDim2.new(0, 100, 0, 50)
+textButton77.Position = UDim2.new(0.6, -45, 0, -40)
+textButton77.TextColor3 = Color3.new(1, 0, 0)
+textButton77.BackgroundColor3 = Color3.new(0, 0, 0)
+textButton77.BackgroundTransparency = 0.7
+textButton77.Parent = screenGui77
 
 local function onButtonClick2()
     gui.Enabled = not gui.Enabled
