@@ -846,7 +846,7 @@ task.wait(1)
 
 
 --ConsoleCountStart
-ConsoleOutputCount = ConsoleOutputCount + 2
+ConsoleOutputCount = ConsoleOutputCount + 0.3
 do
     --Main
     Tabs.Main:AddSection("Tutorial")
@@ -6136,6 +6136,31 @@ do
         Description = "",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-581.70068359375, 38.337032318115234, 417.4595947265625)
+            if ConsoleCountStart == 0.9 then
+                ConsoleCountStart = 0.1
+                local MainConsoleLog = Instance.new("TextLabel")
+                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+                MainConsoleLog.BorderSizePixel = 0
+                MainConsoleLog.TextWrapped = true
+                MainConsoleLog.Text = "Successfully Teleport"
+                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+                MainConsoleLog.Parent = textHolder
+            else
+                ConsoleCountStart = ConsoleCountStart + 0.1
+                local MainConsoleLog = Instance.new("TextLabel")
+                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+                MainConsoleLog.BorderSizePixel = 0
+                MainConsoleLog.TextWrapped = true
+                MainConsoleLog.Text = "Successfully Teleport"
+                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+                MainConsoleLog.Parent = textHolder
+            end
         end
     })
     Tabs.B2C3:AddSection("Heart")
@@ -6144,12 +6169,62 @@ do
         Description = "",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-138.42770385742188, 45.49604797363281, 79.2468490600586)
+            if ConsoleCountStart == 0.9 then
+                ConsoleCountStart = 0.1
+                local MainConsoleLog = Instance.new("TextLabel")
+                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+                MainConsoleLog.BorderSizePixel = 0
+                MainConsoleLog.TextWrapped = true
+                MainConsoleLog.Text = "Successfully Teleport"
+                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+                MainConsoleLog.Parent = textHolder
+            else
+                ConsoleCountStart = ConsoleCountStart + 0.1
+                local MainConsoleLog = Instance.new("TextLabel")
+                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+                MainConsoleLog.BorderSizePixel = 0
+                MainConsoleLog.TextWrapped = true
+                MainConsoleLog.Text = "Successfully Teleport"
+                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+                MainConsoleLog.Parent = textHolder
+            end
         end
     })
     Tabs.B2C3:AddButton({
         Title = "Auto Win",
         Description = "",
         Callback = function()
+            if ConsoleCountStart == 0.9 then
+                ConsoleCountStart = 0.1
+                local MainConsoleLog = Instance.new("TextLabel")
+                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+                MainConsoleLog.BorderSizePixel = 0
+                MainConsoleLog.TextWrapped = true
+                MainConsoleLog.Text = "Getting Heart"
+                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+                MainConsoleLog.Parent = textHolder
+            else
+                ConsoleCountStart = ConsoleCountStart + 0.1
+                local MainConsoleLog = Instance.new("TextLabel")
+                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+                MainConsoleLog.BorderSizePixel = 0
+                MainConsoleLog.TextWrapped = true
+                MainConsoleLog.Text = "Getting Heart"
+                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+                MainConsoleLog.Parent = textHolder
+            end
             for i, v in pairs(Workspace:GetDescendants()) do
                 if v:IsA("ProximityPrompt") and v.Parent.Name == "Heart" and v.Parent.Parent.Name == "Hearts" then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Heart.CFrame
@@ -6165,6 +6240,57 @@ do
                     task.wait(0.3)
                     fireproximityprompt(v)
                 end
+            end
+            if ConsoleCountStart == 0.9 then
+                ConsoleCountStart = 0.1
+                local MainConsoleLog = Instance.new("TextLabel")
+                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+                MainConsoleLog.BorderSizePixel = 0
+                MainConsoleLog.TextWrapped = true
+                MainConsoleLog.Text = "Putting Heart"
+                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+                MainConsoleLog.Parent = textHolder
+            else
+                ConsoleCountStart = ConsoleCountStart + 0.1
+                local MainConsoleLog = Instance.new("TextLabel")
+                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+                MainConsoleLog.BorderSizePixel = 0
+                MainConsoleLog.TextWrapped = true
+                MainConsoleLog.Text = "Putting Heart"
+                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+                MainConsoleLog.Parent = textHolder
+            end
+            task.wait()
+            if ConsoleCountStart == 0.9 then
+                ConsoleCountStart = 0.1
+                local MainConsoleLog = Instance.new("TextLabel")
+                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+                MainConsoleLog.BorderSizePixel = 0
+                MainConsoleLog.TextWrapped = true
+                MainConsoleLog.Text = "Successfully Auto Heart"
+                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+                MainConsoleLog.Parent = textHolder
+            else
+                ConsoleCountStart = ConsoleCountStart + 0.1
+                local MainConsoleLog = Instance.new("TextLabel")
+                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+                MainConsoleLog.BorderSizePixel = 0
+                MainConsoleLog.TextWrapped = true
+                MainConsoleLog.Text = "Successfully Auto Heart"
+                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+                MainConsoleLog.Parent = textHolder
             end
         end
     })
@@ -6309,6 +6435,8 @@ do
         Title = "Auto Win",
         Description = "",
         Callback = function()
+            workspace.Section3.IsamuAI.Hitbox.CanTouch = false
+            repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui["03_Handler"].TimerFrame.TextLabel.Text == "6 PM"
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1133.62366, 44.8969536, -2387.33252)
         end
     })
@@ -6411,10 +6539,56 @@ do
     })
     Tabs.B2C3:AddSection("Yurei 2nd form | Boss")
     Tabs.B2C3:AddButton({
-        Title = "Auto Kill",
+        Title = "Clear Map",
         Description = "",
         Callback = function()
+            for _, v in pairs(workspace.Section5.Boss.Build:GetChildren()) do
+                if v and v.Name == "c01-15k" or v and v.Name == "InvisWall" then
+                    v:Destroy()
+                end
+            end
+        end
+    })
+    Tabs.B2C3:AddButton({
+        Title = "Auto Get Sword",
+        Description = "Also teleport to safe spot, very safe",
+        Callback = function()
+            function isPartNearPart(part1, part2, distance)
+                if part1 and part1:IsA("BasePart") and part2 and part2:IsA("BasePart") then
+                    local distanceThreshold = distance
+                    local part1Position = part1.Position
+                    local part2Position = part2.Position
+                    local partDistance = (part1Position - part2Position).magnitude
             
+                    return partDistance <= distanceThreshold
+                else
+                    return false
+                end
+            end
+            for _, v in pairs(workspace.Section5.Boss.Katanas:GetChildren()) do
+                if v and not isPartNearPart(v, workspace.Section5.Boss.MonsterFolder.Yurei:FindFirstChild("Body"), 20) and v.ProximityPrompt and v.ProximityPrompt.Enabled then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position.X, v.Position.Y, v.Position.Z)
+                    task.wait(0.3)
+                    fireproximityprompt(v.ProximityPrompt)
+                end
+            end
+            task.wait()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3078.94287, 16.9999962, -540.494385, -0.784964442, 0, 0.619540811, 0, 1, 0, -0.619540811, 0, -0.784964442)            
+        end
+    })
+    Tabs.B2C3:AddSection("Hell | Jigoku")
+    Tabs.B2C3:AddButton({
+        Title = "Talk",
+        Description = "",
+        Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Section6.TriggerCutscene.CFrame
+        end
+    })
+    Tabs.B2C3:AddButton({
+        Title = "Auto Run",
+        Description = "",
+        Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Section6.Chase.END.CFrame
         end
     })
     local ETOKILLYOURSELF = Tabs.Main:AddToggle("ETOKILLYOURSELF", {Title = "Auto Save Yourself", Default = false })
@@ -9210,7 +9384,7 @@ local function onButtonClick2()
     gui.Enabled = not gui.Enabled
 end
 
-textButton.MouseButton1Click:Connect(onButtonClick2)
+textButton77.MouseButton1Click:Connect(onButtonClick2)
 
 
 
