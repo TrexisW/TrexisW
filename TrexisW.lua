@@ -846,7 +846,7 @@ task.wait(1)
 
 
 --ConsoleCountStart
-ConsoleOutputCount = ConsoleOutputCount + 0.3
+local ConsoleOutputCount = ConsoleOutputCount + 0.3
 do
     --Main
     Tabs.Main:AddSection("Tutorial")
@@ -6143,8 +6143,8 @@ do
             end
             local MainConsoleLog = Instance.new("TextLabel")
             MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-            MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
-            MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+            MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0)
+            MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0)
             MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
             MainConsoleLog.BorderSizePixel = 0
             MainConsoleLog.TextWrapped = true
