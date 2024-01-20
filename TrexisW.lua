@@ -6138,29 +6138,19 @@ do
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-581.70068359375, 38.337032318115234, 417.4595947265625)
             if ConsoleCountStart == 0.9 then
                 ConsoleCountStart = 0.1
-                local MainConsoleLog = Instance.new("TextLabel")
-                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
-                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
-                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-                MainConsoleLog.BorderSizePixel = 0
-                MainConsoleLog.TextWrapped = true
-                MainConsoleLog.Text = "Successfully Teleport"
-                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-                MainConsoleLog.Parent = textHolder
             else
                 ConsoleCountStart = ConsoleCountStart + 0.1
-                local MainConsoleLog = Instance.new("TextLabel")
-                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
-                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
-                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-                MainConsoleLog.BorderSizePixel = 0
-                MainConsoleLog.TextWrapped = true
-                MainConsoleLog.Text = "Successfully Teleport"
-                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-                MainConsoleLog.Parent = textHolder
             end
+            local MainConsoleLog = Instance.new("TextLabel")
+            MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+            MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+            MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
+            MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+            MainConsoleLog.BorderSizePixel = 0
+            MainConsoleLog.TextWrapped = true
+            MainConsoleLog.Text = "Successfully Teleport"
+            MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+            MainConsoleLog.Parent = textHolder
         end
     })
     Tabs.B2C3:AddSection("Heart")
