@@ -846,7 +846,7 @@ task.wait(1)
 
 
 --ConsoleCountStart
-local ConsoleOutputCount = ConsoleOutputCount + 0.3
+ConsoleOutputCount = ConsoleOutputCount + 0.3
 do
     --Main
     Tabs.Main:AddSection("Tutorial")
@@ -6136,14 +6136,14 @@ do
         Description = "",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-581.70068359375, 38.337032318115234, 417.4595947265625)
-            if ConsoleCountStart == 0.9 then
-                ConsoleCountStart = 0.1
+            if ConsoleOutputCount == 0.9 then
+                ConsoleOutputCount = 0.1
             else
-                ConsoleCountStart = ConsoleCountStart + 0.1
+                ConsoleOutputCount = ConsoleOutputCount + 0.1
             end
             local MainConsoleLog = Instance.new("TextLabel")
             MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-            MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0)
+            MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0)
             MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0)
             MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
             MainConsoleLog.BorderSizePixel = 0
@@ -6159,11 +6159,11 @@ do
         Description = "",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-138.42770385742188, 45.49604797363281, 79.2468490600586)
-            if ConsoleCountStart == 0.9 then
-                ConsoleCountStart = 0.1
+            if ConsoleOutputCount == 0.9 then
+                ConsoleOutputCount = 0.1
                 local MainConsoleLog = Instance.new("TextLabel")
                 MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
                 MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
                 MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
                 MainConsoleLog.BorderSizePixel = 0
@@ -6172,10 +6172,10 @@ do
                 MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
                 MainConsoleLog.Parent = textHolder
             else
-                ConsoleCountStart = ConsoleCountStart + 0.1
+                ConsoleOutputCount = ConsoleOutputCount + 0.1
                 local MainConsoleLog = Instance.new("TextLabel")
                 MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
                 MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
                 MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
                 MainConsoleLog.BorderSizePixel = 0
@@ -6190,11 +6190,11 @@ do
         Title = "Auto Win",
         Description = "",
         Callback = function()
-            if ConsoleCountStart == 0.9 then
-                ConsoleCountStart = 0.1
+            if ConsoleOutputCount == 0.9 then
+                ConsoleOutputCount = 0.1
                 local MainConsoleLog = Instance.new("TextLabel")
                 MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
                 MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
                 MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
                 MainConsoleLog.BorderSizePixel = 0
@@ -6203,10 +6203,10 @@ do
                 MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
                 MainConsoleLog.Parent = textHolder
             else
-                ConsoleCountStart = ConsoleCountStart + 0.1
+                ConsoleOutputCount = ConsoleOutputCount + 0.1
                 local MainConsoleLog = Instance.new("TextLabel")
                 MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
                 MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
                 MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
                 MainConsoleLog.BorderSizePixel = 0
@@ -6231,11 +6231,11 @@ do
                     fireproximityprompt(v)
                 end
             end
-            if ConsoleCountStart == 0.9 then
-                ConsoleCountStart = 0.1
+            if ConsoleOutputCount == 0.9 then
+                ConsoleOutputCount = 0.1
                 local MainConsoleLog = Instance.new("TextLabel")
                 MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
                 MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
                 MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
                 MainConsoleLog.BorderSizePixel = 0
@@ -6244,10 +6244,10 @@ do
                 MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
                 MainConsoleLog.Parent = textHolder
             else
-                ConsoleCountStart = ConsoleCountStart + 0.1
+                ConsoleOutputCount = ConsoleOutputCount + 0.1
                 local MainConsoleLog = Instance.new("TextLabel")
                 MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
                 MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
                 MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
                 MainConsoleLog.BorderSizePixel = 0
@@ -6257,11 +6257,11 @@ do
                 MainConsoleLog.Parent = textHolder
             end
             task.wait()
-            if ConsoleCountStart == 0.9 then
-                ConsoleCountStart = 0.1
+            if ConsoleOutputCount == 0.9 then
+                ConsoleOutputCount = 0.1
                 local MainConsoleLog = Instance.new("TextLabel")
                 MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
+                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
                 MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
                 MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
                 MainConsoleLog.BorderSizePixel = 0
@@ -6270,7 +6270,7 @@ do
                 MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
                 MainConsoleLog.Parent = textHolder
             else
-                ConsoleCountStart = ConsoleCountStart + 0.1
+                ConsoleOutputCount = ConsoleOutputCount + 0.1
                 local MainConsoleLog = Instance.new("TextLabel")
                 MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
                 MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
