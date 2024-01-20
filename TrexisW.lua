@@ -27,6 +27,7 @@ else
     --game.Players.LocalPlayer:Kick("Premium User Only")
 end
 task.wait()
+local ConsoleOutputCount = 0
 -- Create a ScreenGui
 local gui = Instance.new("ScreenGui")
 gui.Name = "MimicConsole"
@@ -843,6 +844,9 @@ task.wait(1)
 createButton("D", UDim2.new(0.1, 0, 0.2, 0))
 task.wait(1)
 
+
+--ConsoleCountStart
+ConsoleOutputCount = ConsoleOutputCount + 2
 do
     --Main
     Tabs.Main:AddSection("Tutorial")
@@ -2841,7 +2845,7 @@ do
     Tabs.B2C2:AddSection("Someone Eat Cow")
     Tabs.B2C2:AddButton({
         Title = "Auto Win",
-        Description = "Read Tutorial",
+        Description = "Read Tutorial | Custom Prompt Needed",
         Callback = function()
             if not CustomFirePropmt then
                 Fluent:Notify({
@@ -3005,7 +3009,7 @@ do
                         task.wait(1) 
                     end
                 end
-                tasl.wait()
+                task.wait()
                 screenGui:Destroy()
                 char.HumanoidRootPart.Anchored = false
                 _G.Float = false
@@ -3018,7 +3022,7 @@ do
                 })
                 Fluent:Notify({
                     Title = "Bypass",
-                    Content = "If you are not sure if it bypass or not, press again. you have to accept it. this is nightmare mode",
+                    Content = "If you are not sure if it bypass or not",
                     Duration = 5
                 })
             end
@@ -3327,7 +3331,7 @@ do
                                 end
                             end 
                         end
-                        task.wait()
+                    task.wait()
                 end
             end
         end
@@ -6058,6 +6062,7 @@ do
                         end
                     elseif player.Backpack:FindFirstChild("Cutlass") then
                         char.Humanoid:EquipTool(player.Backpack:FindFirstChild("Cutlass"))
+                        task.wait(0.5)
                     elseif char:FindFirstChild("Cutlass") then
                         if tailHitbox then
                             repeat
@@ -6170,7 +6175,7 @@ do
             Description = "",
             Callback = function()
                 _G.Float = true
-                Tp(98.32, 43, -397.90, 0.1)
+                Tp(-101.209686, 41.456089, -395.665802, 0.1)
                 for i, v in pairs(Workspace:GetDescendants()) do
                     if v:IsA("ProximityPrompt") and v.Parent.Name == "MAIN" then
                         if isPlayerNear(v.Parent, 30) then
@@ -6187,9 +6192,10 @@ do
             Title = "Auto Craft",
             Description = "",
             Callback = function()
+                _G.Float = true
                 for i, v in pairs(Workspace:GetDescendants()) do
                     if v:IsA("ProximityPrompt") and v.Parent.Name == "Hole" then
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Parent.Position.X, v.Parent.Position.Y - 5, v.Parent.Position.Z)
                         task.wait(0.3)
                         fireproximityprompt(v)
                     end
@@ -6205,6 +6211,7 @@ do
                     end
                 end
                 task.wait()
+                _G.Float = false
                 local args = {
                     [1] = 0,
                     [2] = {
@@ -6272,6 +6279,146 @@ do
                 end
             end
         })
+        Tabs.B2C3:AddButton({
+            Title = "Teleport To Puzzle Door",
+            Description = "",
+            Callback = function()
+                for i, v in pairs(workspace.Section2.PuzzleDoor:GetDescendants()) do
+                    if v.Name == "PuzzleDoor" and v:FindFirstChild("Shapes") then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                        task.wait()
+                    end
+                end
+            end
+        })
+        Tabs.B2C3:AddButton({
+            Title = "Auto Run",
+            Description = "",
+            Callback = function()
+                Tp(-3888.80054, -55, -2289.43774)
+            end
+        })
+        Tabs.B2C3:AddSection("Enzukai Game")
+        Tabs.B2C3:AddButton({
+            Title = "Auto Win",
+            Description = "",
+            Callback = function()
+                
+            end
+        })
+        Tabs.B2C3:AddSection("Father")
+        Tabs.B2C3:AddButton({
+            Title = "Auto Win",
+            Description = "",
+            Callback = function()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1133.62366, 44.8969536, -2387.33252)
+            end
+        })
+        Tabs.B2C3:AddSection("Train")
+        Tabs.B2C3:AddButton({
+            Title = "Enter Zone",
+            Description = "",
+            Callback = function()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Section3.5"].GhostTrain.TrainTrigger.CFrame
+            end
+        })
+        Tabs.B2C3:AddSection("Chainsaw man LOL")
+        Tabs.B2C3:AddButton({
+            Title = "Auto Win",
+            Description = "",
+            Callback = function()
+                for _,v in pairs(workspace.Section4.Map.BabyFaceNPC.ProxPart:GetChildren()) do
+                    if v:IsA("ProximityPrompt") and v.Enabled then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                        task.wait(0.3)
+                        fireproximityprompt(v)
+                        break
+                    end
+                end
+                task.wait()
+                for _,v in pairs(workspace.Section4.HotPotato.Givers:GetChildren()) do
+                    if v.Name == "LarvaeGiver" and v:FindFirstChild("RootPart") then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.RootPart.CFrame
+                        task.wait(0.3)
+                        fireproximityprompt(v.RootPart.ProximityPrompt)
+                        break
+                    end
+                end
+                task.wait()
+                for _,v in pairs(workspace.Section4.DogWall.RootPart:GetChildren()) do
+                    if v:IsA("ProximityPrompt") then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                        task.wait(0.3)
+                        fireproximityprompt(v)
+                        break
+                    end
+                end
+                
+            end
+        })
+        Tabs.B2C3:AddSection("Mud")
+        Tabs.B2C3:AddButton({
+            Title = "Teleport To House",
+            Description = "",
+            Callback = function()
+                for _,v in pairs(workspace["Section4.5"]:GetChildren()) do
+                    if v.Name == "TeleportToSection5" then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                        break
+                    end
+                end
+            end
+        })
+        Tabs.B2C3:AddSection("Yurei 1st form")
+        Tabs.B2C3:AddButton({
+            Title = "Talk",
+            Description = "",
+            Callback = function()
+                for _,v in pairs(workspace.Section5.Map.BabyFaceNPC.ProxPart:GetChildren()) do
+                    if v:IsA("ProximityPrompt") and v.Enabled then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                        task.wait(0.3)
+                        fireproximityprompt(v)
+                        break
+                    end
+                end
+            end
+        })
+        Tabs.B2C3:AddButton({
+            Title = "Teleport To House",
+            Description = "",
+            Callback = function()
+                for _,v in pairs(workspace.Section5.ISPY.Houses:GetDescendants()) do
+                    if v.Name == "LightSpotter" then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                    end
+                end
+            end
+        })
+        Tabs.B2C3:AddButton({
+            Title = "Delete Useless Item",
+            Description = "Delete part that will block your sight",
+            Callback = function()
+                for _,v in pairs(workspace.Section5.ISPY.Houses:GetDescendants()) do
+                    if v.Name == "scene1:shelf_storage_6" or v.Name == "scene1:table2_low" or v.Name == "scene1:divider_1" or v.Name == "GrandfatherClock" or v.Name == "Ivy_E" then
+                        v:Destroy()
+                    end
+                end
+                for _,v in pairs(workspace.Section5.ISPY.Houses:GetDescendants()) do
+                    if v.Name == "Model" and v:FindFirstChild("ClosetExt") then
+                        v:Destroy()
+                    end
+                end
+            end
+        })
+        Tabs.B2C3:AddSection("Yurei 2nd form | Boss")
+        Tabs.B2C3:AddButton({
+            Title = "Auto Kill",
+            Description = "",
+            Callback = function()
+                
+            end
+        })
     end
     local ETOKILLYOURSELF = Tabs.Main:AddToggle("ETOKILLYOURSELF", {Title = "Auto Save Yourself", Default = false })
 
@@ -6279,8 +6426,16 @@ do
         while Options.ETOKILLYOURSELF.Value do
             if game:GetService("Players").LocalPlayer.PlayerGui.QuickTime.GrabbedUI.Visible then
                 repeat 
-                    keyPress(Enum.KeyCode.E)
-                    task.wait()
+                    keyPress(Enum.KeyCode.E, true)
+                    wait()
+                    keyPress(Enum.KeyCode.E, true)
+                    wait()
+                    keyPress(Enum.KeyCode.E, true)
+                    wait()
+                    keyPress(Enum.KeyCode.E, true)
+                    wait()
+                    keyPress(Enum.KeyCode.E, true)
+                    wait()
                 until not game:GetService("Players").LocalPlayer.PlayerGui.QuickTime.GrabbedUI.Visible
             end
             task.wait()
@@ -6291,10 +6446,11 @@ do
     AUTODETECTSQUID:OnChanged(function()
         while Options.AUTODETECTSQUID.Value do
             originalPositionofHum = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Position
+            Yposads = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
             task.wait()
             if game:GetService("Players").LocalPlayer.PlayerGui.DodomekiUI:FindFirstChild("TextHolder") then
                 repeat 
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X, game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y+60, game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X, Yposads+60, game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)
                     task.wait()
                 until not game:GetService("Players").LocalPlayer.PlayerGui.DodomekiUI:FindFirstChild("TextHolder")
                 task.wait()
