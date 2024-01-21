@@ -847,11 +847,11 @@ task.wait(1)
 
 
 --ConsoleCountStart
-ConsoleOutputCount = ConsoleOutputCount + 0.3
+ConsoleOutputCount = ConsoleOutputCount + 0.2
 function MainConsoleLogOutF(Text)
-    if ConsoleOutputCount == 0.9 then
+    if ConsoleOutputCount >= 0.9 then
         ConsoleOutputCount = 0.1
-        textHolder:GetChildren():Destroy()
+        textHolder:ClearAllChildren()
     else
         ConsoleOutputCount = ConsoleOutputCount + 0.1
     end
