@@ -851,6 +851,7 @@ ConsoleOutputCount = ConsoleOutputCount + 0.3
 function MainConsoleLogOutF(Text)
     if ConsoleOutputCount == 0.9 then
         ConsoleOutputCount = 0.1
+        textHolder:GetChildren():Destroy()
     else
         ConsoleOutputCount = ConsoleOutputCount + 0.1
     end
