@@ -312,6 +312,7 @@ local nearestPrompt = nil
 local FirstPress = false
 local success = nil
 _G.Clip = nil
+
 local GetConnections = function(A, B)
     for i,v in pairs(getconnections(A[tostring(B)])) do
         v:Fire()
@@ -847,6 +848,23 @@ task.wait(1)
 
 --ConsoleCountStart
 ConsoleOutputCount = ConsoleOutputCount + 0.3
+function MainConsoleLogOutF(Text)
+    if ConsoleOutputCount == 0.9 then
+        ConsoleOutputCount = 0.1
+    else
+        ConsoleOutputCount = ConsoleOutputCount + 0.1
+    end
+    local MainConsoleLog = Instance.new("TextLabel")
+    MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
+    MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0)
+    MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0)
+    MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
+    MainConsoleLog.BorderSizePixel = 0
+    MainConsoleLog.TextWrapped = true
+    MainConsoleLog.Text = tostring(Text)
+    MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
+    MainConsoleLog.Parent = textHolder
+end
 do
     --Main
     Tabs.Main:AddSection("Tutorial")
@@ -6136,21 +6154,7 @@ do
         Description = "",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-581.70068359375, 38.337032318115234, 417.4595947265625)
-            if ConsoleOutputCount == 0.9 then
-                ConsoleOutputCount = 0.1
-            else
-                ConsoleOutputCount = ConsoleOutputCount + 0.1
-            end
-            local MainConsoleLog = Instance.new("TextLabel")
-            MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-            MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0)
-            MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0)
-            MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-            MainConsoleLog.BorderSizePixel = 0
-            MainConsoleLog.TextWrapped = true
-            MainConsoleLog.Text = "Successfully Teleport"
-            MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-            MainConsoleLog.Parent = textHolder
+            MainConsoleLogOutF("Successfully Teleport")
         end
     })
     Tabs.B2C3:AddSection("Heart")
@@ -6159,62 +6163,14 @@ do
         Description = "",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-138.42770385742188, 45.49604797363281, 79.2468490600586)
-            if ConsoleOutputCount == 0.9 then
-                ConsoleOutputCount = 0.1
-                local MainConsoleLog = Instance.new("TextLabel")
-                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
-                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
-                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-                MainConsoleLog.BorderSizePixel = 0
-                MainConsoleLog.TextWrapped = true
-                MainConsoleLog.Text = "Successfully Teleport"
-                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-                MainConsoleLog.Parent = textHolder
-            else
-                ConsoleOutputCount = ConsoleOutputCount + 0.1
-                local MainConsoleLog = Instance.new("TextLabel")
-                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
-                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
-                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-                MainConsoleLog.BorderSizePixel = 0
-                MainConsoleLog.TextWrapped = true
-                MainConsoleLog.Text = "Successfully Teleport"
-                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-                MainConsoleLog.Parent = textHolder
-            end
+            MainConsoleLogOutF("Successfully Teleport")
         end
     })
     Tabs.B2C3:AddButton({
         Title = "Auto Win",
         Description = "",
         Callback = function()
-            if ConsoleOutputCount == 0.9 then
-                ConsoleOutputCount = 0.1
-                local MainConsoleLog = Instance.new("TextLabel")
-                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
-                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
-                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-                MainConsoleLog.BorderSizePixel = 0
-                MainConsoleLog.TextWrapped = true
-                MainConsoleLog.Text = "Getting Heart"
-                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-                MainConsoleLog.Parent = textHolder
-            else
-                ConsoleOutputCount = ConsoleOutputCount + 0.1
-                local MainConsoleLog = Instance.new("TextLabel")
-                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
-                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
-                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-                MainConsoleLog.BorderSizePixel = 0
-                MainConsoleLog.TextWrapped = true
-                MainConsoleLog.Text = "Getting Heart"
-                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-                MainConsoleLog.Parent = textHolder
-            end
+            MainConsoleLogOutF("Getting Heart")
             for i, v in pairs(Workspace:GetDescendants()) do
                 if v:IsA("ProximityPrompt") and v.Parent.Name == "Heart" and v.Parent.Parent.Name == "Hearts" then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.Heart.CFrame
@@ -6231,57 +6187,9 @@ do
                     fireproximityprompt(v)
                 end
             end
-            if ConsoleOutputCount == 0.9 then
-                ConsoleOutputCount = 0.1
-                local MainConsoleLog = Instance.new("TextLabel")
-                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
-                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
-                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-                MainConsoleLog.BorderSizePixel = 0
-                MainConsoleLog.TextWrapped = true
-                MainConsoleLog.Text = "Putting Heart"
-                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-                MainConsoleLog.Parent = textHolder
-            else
-                ConsoleOutputCount = ConsoleOutputCount + 0.1
-                local MainConsoleLog = Instance.new("TextLabel")
-                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
-                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
-                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-                MainConsoleLog.BorderSizePixel = 0
-                MainConsoleLog.TextWrapped = true
-                MainConsoleLog.Text = "Putting Heart"
-                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-                MainConsoleLog.Parent = textHolder
-            end
+            MainConsoleLogOutF("Putting Heart")
             task.wait()
-            if ConsoleOutputCount == 0.9 then
-                ConsoleOutputCount = 0.1
-                local MainConsoleLog = Instance.new("TextLabel")
-                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0) -- Adjusted position
-                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
-                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-                MainConsoleLog.BorderSizePixel = 0
-                MainConsoleLog.TextWrapped = true
-                MainConsoleLog.Text = "Successfully Auto Heart"
-                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-                MainConsoleLog.Parent = textHolder
-            else
-                ConsoleOutputCount = ConsoleOutputCount + 0.1
-                local MainConsoleLog = Instance.new("TextLabel")
-                MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
-                MainConsoleLog.Position = UDim2.new(0, 0, ConsoleCountStart, 0) -- Adjusted position
-                MainConsoleLog.BackgroundColor3 = Color3.new(0, 0, 0) -- Green background
-                MainConsoleLog.TextColor3 = Color3.new(0, 1, 0)
-                MainConsoleLog.BorderSizePixel = 0
-                MainConsoleLog.TextWrapped = true
-                MainConsoleLog.Text = "Successfully Auto Heart"
-                MainConsoleLog.TextXAlignment = Enum.TextXAlignment.Left
-                MainConsoleLog.Parent = textHolder
-            end
+            MainConsoleLogOutF("Successfully Auto Heart")
         end
     })
     Tabs.B2C3:AddButton({
@@ -6298,6 +6206,8 @@ do
                 end
             end
             task.wait()
+            MainConsoleLogOutF("Successfully Teleport")
+            MainConsoleLogOutF("Failed To Use Bug Detector")
             _G.Float = false
         end
     })
@@ -6307,6 +6217,7 @@ do
         Description = "",
         Callback = function()
             _G.Float = true
+            MainConsoleLogOutF("Getting Item")
             for i, v in pairs(Workspace:GetDescendants()) do
                 if v:IsA("ProximityPrompt") and v.Parent.Name == "Hole" then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Parent.Position.X, v.Parent.Position.Y - 5, v.Parent.Position.Z)
@@ -6315,6 +6226,7 @@ do
                 end
             end
             Tp(-78.38977813720703, 3.999999523162842, -442.6703186035156, 1)
+            MainConsoleLogOutF("Crafting")
             for i, v in pairs(Workspace:GetDescendants()) do
                 if v:IsA("ProximityPrompt") and v.Parent.Name == "RootPart" and v.Parent.Parent.Name == "Monster" and isPlayerNear(v.Parent, 30) then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
@@ -6339,13 +6251,15 @@ do
             }
             
             game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Packet"):WaitForChild("PacketFunction"):InvokeServer(unpack(args))
+            MainConsoleLogOutF("Trying To Invoke Server")
             task.wait()
             game:GetService("Players").LocalPlayer.PlayerGui.Crafting.Frame.Visible = false
+            MainConsoleLogOutF("Successfully Craft Torch")
         end
     })
     Tabs.B2C3:AddButton({
         Title = "Auto Get Fire",
-        Description = "",
+        Description = "Hold torch",
         Callback = function()
             for i, v in pairs(Workspace:GetDescendants()) do
                 if v:IsA("ProximityPrompt") and v.Parent.Name == "UndyingFlame" then
@@ -6357,14 +6271,16 @@ do
                 end
             end
             task.wait()
-            Tp(-78.38977813720703, 3.999999523162842, -442.6703186035156, 1)            
+            Tp(-78.38977813720703, 3.999999523162842, -442.6703186035156, 1)  
+            MainConsoleLogOutF("Successfully Get Fire")          
         end
     })
     Tabs.B2C3:AddButton({
         Title = "Teleport to exit",
         Description = "",
         Callback = function()
-            Tp(-74.25013732910156, 5.26987361907959, -880.4428100585938, nil)          
+            Tp(-74.25013732910156, 5.26987361907959, -880.4428100585938, nil)       
+            MainConsoleLogOutF("Successfully Teleport")   
         end
     })
     Tabs.B2C3:AddSection("Bell")
@@ -6372,7 +6288,8 @@ do
         Title = "Enter Zone",
         Description = "",
         Callback = function()
-            Tp(-325.5806579589844, 15.388615608215332, -1113.81494140625, nil)          
+            Tp(-325.5806579589844, 15.388615608215332, -1113.81494140625, nil)    
+            MainConsoleLogOutF("Successfully Teleport")      
         end
     })
     Tabs.B2C3:AddButton({
@@ -6391,6 +6308,8 @@ do
                     task.wait(3)
                 end
             end
+            task.wait()
+            MainConsoleLogOutF("Successfully Kill All Flys")
         end
     })
     Tabs.B2C3:AddButton({
@@ -6403,6 +6322,7 @@ do
                     task.wait()
                 end
             end
+            MainConsoleLogOutF("Successfully Teleport")
         end
     })
     Tabs.B2C3:AddButton({
@@ -6410,6 +6330,7 @@ do
         Description = "",
         Callback = function()
             Tp(-3888.80054, -55, -2289.43774)
+            MainConsoleLogOutF("Successfully Teleport")
         end
     })
     Tabs.B2C3:AddSection("Enzukai Game")
@@ -6417,7 +6338,7 @@ do
         Title = "Auto Win",
         Description = "",
         Callback = function()
-            
+            MainConsoleLogOutF("Error On Getting Functions")
         end
     })
     Tabs.B2C3:AddSection("Father")
@@ -6426,7 +6347,10 @@ do
         Description = "",
         Callback = function()
             workspace.Section3.IsamuAI.Hitbox.CanTouch = false
+            MainConsoleLogOutF("Successfully Set Kill IsamuAI")
+            MainConsoleLogOutF("Waiting Time")
             repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui["03_Handler"].TimerFrame.TextLabel.Text == "6 PM"
+            MainConsoleLogOutF("Successfully Teleport")
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1133.62366, 44.8969536, -2387.33252)
         end
     })
@@ -6436,6 +6360,7 @@ do
         Description = "",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Section3.5"].GhostTrain.TrainTrigger.CFrame
+            MainConsoleLogOutF("Successfully Teleport")
         end
     })
     Tabs.B2C3:AddSection("Chainsaw man LOL")
@@ -6451,7 +6376,9 @@ do
                     break
                 end
             end
+            MainConsoleLogOutF("Successfully Talk")
             task.wait()
+            MainConsoleLogOutF("Getting Larvae")
             for _,v in pairs(workspace.Section4.HotPotato.Givers:GetChildren()) do
                 if v.Name == "LarvaeGiver" and v:FindFirstChild("RootPart") then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.RootPart.CFrame
@@ -6461,6 +6388,7 @@ do
                 end
             end
             task.wait()
+            MainConsoleLogOutF("Successfully Getting Larvae")
             for _,v in pairs(workspace.Section4.DogWall.RootPart:GetChildren()) do
                 if v:IsA("ProximityPrompt") then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
@@ -6469,7 +6397,8 @@ do
                     break
                 end
             end
-            
+            task.wait()
+            MainConsoleLogOutF("Successfully Auto Win")
         end
     })
     Tabs.B2C3:AddSection("Mud")
@@ -6483,6 +6412,7 @@ do
                     break
                 end
             end
+            MainConsoleLogOutF("Successfully Teleport")
         end
     })
     Tabs.B2C3:AddSection("Yurei 1st form")
@@ -6498,6 +6428,7 @@ do
                     break
                 end
             end
+            MainConsoleLogOutF("Successfully Talk")
         end
     })
     Tabs.B2C3:AddButton({
@@ -6509,6 +6440,7 @@ do
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
                 end
             end
+            MainConsoleLogOutF("Successfully Teleport")
         end
     })
     Tabs.B2C3:AddButton({
@@ -6525,6 +6457,7 @@ do
                     v:Destroy()
                 end
             end
+            MainConsoleLogOutF("Successfully Remove Part")
         end
     })
     Tabs.B2C3:AddSection("Yurei 2nd form | Boss")
@@ -6537,6 +6470,8 @@ do
                     v:Destroy()
                 end
             end
+            MainConsoleLogOutF("Successfully Remove Part")
+            MainConsoleLogOutF("Possible On Noclip")
         end
     })
     Tabs.B2C3:AddButton({
@@ -6563,7 +6498,9 @@ do
                 end
             end
             task.wait()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3078.94287, 16.9999962, -540.494385, -0.784964442, 0, 0.619540811, 0, 1, 0, -0.619540811, 0, -0.784964442)            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3078.94287, 16.9999962, -540.494385, -0.784964442, 0, 0.619540811, 0, 1, 0, -0.619540811, 0, -0.784964442)
+            MainConsoleLogOutF("Successfully Get Sword")
+            MainConsoleLogOutF("Successfully Teleport")
         end
     })
     Tabs.B2C3:AddSection("Hell | Jigoku")
@@ -6572,6 +6509,7 @@ do
         Description = "",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Section6.TriggerCutscene.CFrame
+            MainConsoleLogOutF("Successfully Teleport")
         end
     })
     Tabs.B2C3:AddButton({
@@ -6579,6 +6517,7 @@ do
         Description = "",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Section6.Chase.END.CFrame
+            MainConsoleLogOutF("Successfully Teleport")
         end
     })
     local ETOKILLYOURSELF = Tabs.Main:AddToggle("ETOKILLYOURSELF", {Title = "Auto Save Yourself", Default = false })
