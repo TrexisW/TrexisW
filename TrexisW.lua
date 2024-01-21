@@ -848,13 +848,18 @@ task.wait(1)
 
 --ConsoleCountStart
 ConsoleOutputCount = ConsoleOutputCount + 0.2
-function MainConsoleLogOutF(Text)
+local function MainConsoleLogOutF(Text)
     if ConsoleOutputCount >= 0.9 then
         ConsoleOutputCount = 0.1
-        textHolder:ClearAllChildren()
+        for _, v in pairs(textHolder:GetChildren()) do
+            if v then
+                v:Destroy()
+            end
+        end
     else
         ConsoleOutputCount = ConsoleOutputCount + 0.1
     end
+    warn(ConsoleOutputCount)
     local MainConsoleLog = Instance.new("TextLabel")
     MainConsoleLog.Size = UDim2.new(1, 0, 0, 20)
     MainConsoleLog.Position = UDim2.new(0, 0, ConsoleOutputCount, 0)
