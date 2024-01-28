@@ -457,6 +457,7 @@ end
 
 textButton.MouseButton1Click:Connect(onButtonClick)
 do
+    task.wait()
     Tabs.Event:AddSection("Event")
     local AutoGifts = Tabs.Event:AddToggle("AutoGifts", {Title = "Auto Gifts", Default = false })
     AutoGifts:OnChanged(function(Value)
@@ -562,7 +563,7 @@ do
             task.wait()
         end
     end)
-
+    task.wait(0.5)
     Tabs.Main:AddSection("Main")
     local Toggle = Tabs.Main:AddToggle("noetogg", {Title = "No E Cooldown", Default = false })
     Toggle:OnChanged(function(Value)
@@ -858,7 +859,7 @@ do
             require(game:GetService("ReplicatedStorage").Aero.Shared.Util).Network:Invoke("RequestTeamChange", "Heroes");
         end
     })
-
+    task.wait(0.5)
     Tabs.PlayerTab:AddSection("Aim & Other")
     if not _G.DeviceType == "Mobile" and not _G.DeviceType2 == "Mobile" then -- Pc
         local hitboxexpander = Tabs.PlayerTab:AddKeybind("Keybind", {
@@ -1110,7 +1111,7 @@ do
     autosprinttoggle:OnChanged(function(Value)
         shiftspam = Value
     end)
-
+    task.wait(0.5)
     Tabs.Auto:AddSection("Auto Arrest")
     local autoarresttextbox = Tabs.Auto:AddInput("arrestplayer", {
         Title = "Arrest Player",
@@ -2355,6 +2356,7 @@ do
     local Success, Errored = pcall(function()
         CreateTracers();
     end);
+    task.wait(0.5)
     Tabs.ESP:AddSection("Player ESP")
     local shownametoggle = Tabs.ESP:AddToggle("namees", {Title = "Show Names", Default = false })
     shownametoggle:OnChanged(function(Value)
@@ -2422,6 +2424,7 @@ do
             end
         end
     })
+    task.wait(0.5)
     Tabs.Car:AddSection("Car Miscellaneous")
     local spawnvehicle = Tabs.Car:AddInput("spawn vehicle", {
         Title = "Spawn Vehicle",
@@ -2539,7 +2542,7 @@ end)
             loadstring(game:HttpGet("https://raw.githubusercontent.com/klusiaholamafi/Vehicle-Start-Time/main/Code"))();
         end
     })
-
+    task.wait(0.5)
     Tabs.Mods:AddSection("Gun Modifications")
     Tabs.Mods:AddButton({
         Title = "Mod Guns Maximum",
@@ -2735,7 +2738,7 @@ end)
             end
         end
     })
-
+    task.wait(0.5)
     Tabs.Tp:AddSection("Auto Escape Prison")
     Tabs.Tp:AddButton({
         Title = "Escape Prison",
@@ -2919,6 +2922,7 @@ end)
             setuploops = Value;
         end
     })
+    task.wait(0.5)
     Tabs.Laser:AddSection("Remove All Laser")
     Tabs.Laser:AddButton({
         Title = "Remove All Lasers",
@@ -3079,6 +3083,7 @@ end)
 		    game.Workspace.MovingLasers.AppleStoreFloorB:Destroy();
         end
     })
+    task.wait(0.5)
     Tabs.detect:AddSection("Update Detect")
     local notifyupdate = Tabs.detect:AddToggle("notifyonupdate", {Title = "Notify on Update", Default = false })
     notifyupdate:OnChanged(function(Value)
@@ -3157,7 +3162,7 @@ end)
             end
         end
     end)
-
+    task.wait(0.5)
     Tabs.status:AddSection("Heists")
     local plane = Tabs.status:AddParagraph({
         Title = "Plane:",
@@ -3247,6 +3252,7 @@ end)
             })
         end
     })
+    task.wait(0.5)
     Tabs.Tcredits:AddSection("Credits")
     local creditslab = Tabs.Tcredits:AddParagraph({
         Title = "Original Script | Deni210",
@@ -3535,7 +3541,7 @@ if _G.Addons then
     SaveManager:BuildConfigSection(Tabs.Settings)
     SaveManager:LoadAutoloadConfig()
 end
-
+task.wait(0.5)
 Tabs.Settings:AddSection("Developer Tools")
 Tabs.Settings:AddButton({
     Title = "IY Dex",
