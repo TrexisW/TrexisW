@@ -6451,7 +6451,7 @@ do
                             if not v then
                                 break
                             end
-                            if v1.ProxPrompt.ProximityPrompt.Enabled then
+                            if v.ProxPrompt.ProximityPrompt.Enabled then
                                 fireproximityprompt(v.ProxPrompt.ProximityPrompt)
                             end
                         end
