@@ -6444,7 +6444,7 @@ do
         Title = "Auto Win",
         Description = "",
         Callback = function()
-            for _, v in pairs(workspace["Section2.5"].MindGame:GetDescendants()) do
+            for _, v in pairs(workspace["Section2.5"]:GetDescendants()) do
                 if v.Name == "Raft" and v:FindFirstChild("Part") then
                     if isPlayerNear(v:FindFirstChild("Part"), 30) then
                         while task.wait() do
