@@ -1,6 +1,15 @@
-_G.Premium = false
-repeat task.wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer
+repeat task.wait() until game:IsLoaded()
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 local Premium = _G.Premium
+coroutine.wrap(function()
+    game:GetService("ReplicatedStorage"):WaitForChild("Sampling"):Destroy()
+end)()
+repeat task.wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+local Premium = _G.Premium
+coroutine.wrap(function()
+    game:GetService("ReplicatedStorage"):WaitForChild("Sampling"):Destroy()
+end)()
 _G.Hwid = nil
 local HwidL = game:GetService("RbxAnalyticsService"):GetClientId()
 repeat 
@@ -108,6 +117,9 @@ additionalTextLabel2.Parent = textHolder
 
 local SuccessBypsss = false
 coroutine.wrap(function()
+    game:GetService("ReplicatedStorage"):WaitForChild("Sampling"):Destroy()
+end)()
+coroutine.wrap(function()
     while not SuccessBypsss do
         additionalTextLabel2.Text = "Bypassing Anti Cheat"
         task.wait(0.3)
@@ -120,9 +132,6 @@ coroutine.wrap(function()
         end
         task.wait()
     end
-end)()
-coroutine.wrap(function()
-game:GetService("ReplicatedStorage"):WaitForChild("Sampling"):Destroy()
 end)()
 task.wait()
 function Byfrosent(call)
@@ -246,6 +255,7 @@ coroutine.wrap(function()
     task.wait()
 end)()
 task.wait()
+local FullPath = nil
 local BALLGIVER
 local tailHitbox
 local LASEROFNAGISA
@@ -849,7 +859,7 @@ task.wait(1)
 --ConsoleCountStart
 ConsoleOutputCount = ConsoleOutputCount + 0.2
 local function MainConsoleLogOutF(Text)
-    if ConsoleOutputCount >= 0.9 then
+    if ConsoleOutputCount >= 0.8 then
         ConsoleOutputCount = 0.1
         for _, v in pairs(textHolder:GetChildren()) do
             if v then
@@ -1217,6 +1227,17 @@ do
             for _,v in pairs(game:GetService("ReplicatedStorage"):GetDescendants()) do
                 if v.Parent.Name == "SkinsInfo" then
                     v.Parent = Backpack
+                end
+            end
+        end
+    })
+    Tabs.Main:AddButton({
+        Title = "Instance E",
+        Description = "Make you instance press any button without have to hold it | Only the one that near you",
+        Callback = function()
+            for _, v in pairs(workspace:GetDescendants()) do
+                if v:IsA("ProximityPrompt") then
+                    v.HoldDuration = 0
                 end
             end
         end
@@ -2292,7 +2313,7 @@ do
             if not CustomFirePropmt then
                 for i, v in pairs(Workspace:GetDescendants()) do
                     if v:IsA("ProximityPrompt") and v.Parent.Name == "Interact" and v.Parent.Parent.Name == "Book" then
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Parent.Position.X, v.Parent.Position.Y + 5, v.Parent.Position.Z)
                         task.wait(0.3)
                         fireproximityprompt(v)
                     end
@@ -2300,7 +2321,7 @@ do
             else
                 for i, v in pairs(Workspace:GetDescendants()) do
                     if v:IsA("ProximityPrompt") and v.Parent.Name == "Interact" and v.Parent.Parent.Name == "Book" then
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Parent.Position.X, v.Parent.Position.Y + 5, v.Parent.Position.Z)
                         task.wait(0.3)
                         fireproximitypromptv2(v, 1, true)
                     end
@@ -6154,6 +6175,65 @@ do
         end
     end)
     --B2C3
+    Tabs.B2C3:AddSection("Tutorial")
+    Tabs.B2C3:AddButton({
+        Title = "Tutorial",
+        Description = "Important For Beginner",
+        Callback = function()
+            Window:Dialog({
+                Title = "Bypasser",
+                Content = "You must put the script in auto execute",
+                Buttons = {
+                    {
+                        Title = "Continue",
+                        Callback = function()
+                            Window:Dialog({
+                                Title = "Father Section",
+                                Content = "Auto Win -> do work until you get teleport",
+                                Buttons = {
+                                    {
+                                        Title = "Continue",
+                                        Callback = function()
+                                            Window:Dialog({
+                                                Title = "Step By Step Execution",
+                                                Content = "Auto Win -> Talk -> Auto Win -> Walk to the red orb then wait for the monster to spawn -> Auto Run (after you go down to the next section/stage wait until the old one finish so you can continue) -> Auto Craft (There is auto free yourself in Main tab) -> Auto Get Fire (hold torch first) -> Teleport to exit -> Enter Zone -> Kill All Flys -> play it by yourself with inf stamina or fly or something or with Teleport To Puzzle Door -> Auto Run (press after cutscene) -> Auto Win -> Auto Win -> Enter Zone (wait until train arrive then go in it by yourself) -> Auto Win -> Teleport To house (Now play it by yourself) -> Clear Map -> Auto Get Sword -> Talk -> Auto Run",
+                                                Buttons = {
+                                                    {
+                                                        Title = "Finish",
+                                                        Callback = function()
+                                                            print("Confirmed the dialog.")
+                                                        end
+                                                    },
+                                                    {
+                                                        Title = "Finish",
+                                                        Callback = function()
+                                                            print("Cancelled the dialog.")
+                                                        end
+                                                    }
+                                                }
+                                            })
+                                        end
+                                    },
+                                    {
+                                        Title = "Cancel",
+                                        Callback = function()
+                                            print("Cancelled the dialog.")
+                                        end
+                                    }
+                                }
+                            })
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
     Tabs.B2C3:AddSection("Start")
     Tabs.B2C3:AddButton({
         Title = "Auto Win",
@@ -6166,7 +6246,7 @@ do
     Tabs.B2C3:AddSection("Heart")
     Tabs.B2C3:AddButton({
         Title = "Talk",
-        Description = "",
+        Description = "Walk to trigger it",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-138.42770385742188, 45.49604797363281, 79.2468490600586)
             MainConsoleLogOutF("Successfully Teleport")
@@ -6267,8 +6347,20 @@ do
         Title = "Auto Get Fire",
         Description = "Hold torch",
         Callback = function()
+            function isPartNearPart(part1, part2, distance)
+                if part1 and part1:IsA("BasePart") and part2 and part2:IsA("BasePart") then
+                    local distanceThreshold = distance
+                    local part1Position = part1.Position
+                    local part2Position = part2.Position
+                    local partDistance = (part1Position - part2Position).magnitude
+            
+                    return partDistance <= distanceThreshold
+                else
+                    return false
+                end
+            end
             for i, v in pairs(Workspace:GetDescendants()) do
-                if v:IsA("ProximityPrompt") and v.Parent.Name == "UndyingFlame" then
+                if v:IsA("ProximityPrompt") and v.Parent.Name == "UndyingFlame" and not isPartNearPart(v.Parent, workspace.Section1.Maze.GrinDemonNM.Hitbox, 20) then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
                     task.wait(0.3)
                     fireproximityprompt(v)
@@ -6302,7 +6394,7 @@ do
         Title = "Kill All Flys",
         Description = "",
         Callback = function()
-            if not workspace.rigga56:FindFirstChild("Bone Sword") then
+            if not game.Players.LocalPlayer.Character:FindFirstChild("Bone Sword") then
                 game.Players.LocalPlayer.Backpack:FindFirstChild("Bone Sword").Parent = game.Players.LocalPlayer.Character
             end
             task.wait()
@@ -6322,10 +6414,18 @@ do
         Title = "Teleport To Puzzle Door",
         Description = "",
         Callback = function()
-            for i, v in pairs(workspace.Section2.PuzzleDoor:GetDescendants()) do
-                if v.Name == "PuzzleDoor" and v:FindFirstChild("Shapes") then
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+            for i, v in pairs(workspace.Section2.PuzzleDoor.Doors:GetDescendants()) do
+                if v.Name == "SurfaceGui" and v.Parent.Name == "Combos" and v.Parent.Position.Y >= 0 then
+                    local Shapesss = {}
+                    for _, obj in pairs(v:GetChildren()) do
+                        if obj then
+                            table.insert(Shapesss, tostring(obj.Name))
+                        end
+                    end
                     task.wait()
+                    if #Shapesss == 4 then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                    end
                 end
             end
             MainConsoleLogOutF("Successfully Teleport")
@@ -6344,26 +6444,56 @@ do
         Title = "Auto Win",
         Description = "",
         Callback = function()
-            MainConsoleLogOutF("Error On Getting Functions")
+            for _, v in pairs(workspace["Section2.5"].MindGame:GetDescendants()) do
+                if v.Name == "Raft" and v:FindFirstChild("Part") then
+                    if isPlayerNear(v:FindFirstChild("Part"), 30) then
+                        while task.wait() do
+                            if not v then
+                                break
+                            end
+                            if v.Parent.EnzukaiGame.ProxPrompt.ProximityPrompt.Enabled then
+                                fireproximityprompt(v.Parent.EnzukaiGame.ProxPrompt.ProximityPrompt)
+                            end
+                        end
+                    end
+                end
+            end
+            MainConsoleLogOutF("Fire On Repeat")
         end
     })
     Tabs.B2C3:AddSection("Father")
     Tabs.B2C3:AddButton({
-        Title = "Auto Win",
+        Title = "Kill Isamu",
+        Description = "Make Isamu can't kill you",
+        Callback = function()
+            workspace.Section3.IsamuAI.Hitbox.CanTouch = false
+            MainConsoleLogOutF("Successfully Set Kill IsamuAI")
+        end
+    })
+    Tabs.B2C3:AddButton({
+        Title = "Teleport To Safe Spot",
         Description = "",
+        Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1136.67224, 29.0004768, -2400.67603, 0.695213974, 0, -0.718802869, 0, 1, 0, 0.718802869, 0, 0.695213974)
+            MainConsoleLogOutF("Successfully Teleport")
+        end
+    })
+    Tabs.B2C3:AddButton({
+        Title = "Auto Win",
+        Description = "While waiting for 6pm just do work (press this first so brother can't kill you)",
         Callback = function()
             workspace.Section3.IsamuAI.Hitbox.CanTouch = false
             MainConsoleLogOutF("Successfully Set Kill IsamuAI")
             MainConsoleLogOutF("Waiting Time")
             repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui["03_Handler"].TimerFrame.TextLabel.Text == "6 PM"
             MainConsoleLogOutF("Successfully Teleport")
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1133.62366, 44.8969536, -2387.33252)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1136.67224, 29.0004768, -2400.67603, 0.695213974, 0, -0.718802869, 0, 1, 0, 0.718802869, 0, 0.695213974)
         end
     })
     Tabs.B2C3:AddSection("Train")
     Tabs.B2C3:AddButton({
         Title = "Enter Zone",
-        Description = "",
+        Description = "Enter Train by yourself when it arrive",
         Callback = function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Section3.5"].GhostTrain.TrainTrigger.CFrame
             MainConsoleLogOutF("Successfully Teleport")
@@ -6409,7 +6539,7 @@ do
     })
     Tabs.B2C3:AddSection("Mud")
     Tabs.B2C3:AddButton({
-        Title = "Teleport To House",
+        Title = "Auto Win",
         Description = "",
         Callback = function()
             for _,v in pairs(workspace["Section4.5"]:GetChildren()) do
@@ -6496,17 +6626,28 @@ do
                     return false
                 end
             end
-            for _, v in pairs(workspace.Section5.Boss.Katanas:GetChildren()) do
-                if v and not isPartNearPart(v, workspace.Section5.Boss.MonsterFolder.Yurei:FindFirstChild("Body"), 20) and v.ProximityPrompt and v.ProximityPrompt.Enabled then
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position.X, v.Position.Y, v.Position.Z)
-                    task.wait(0.3)
-                    fireproximityprompt(v.ProximityPrompt)
+            if FullPath == nil then
+                for _, v in pairs(workspace.Section5.Boss:GetDescendants()) do
+                    if v.Name == "Yurei" and v:FindFirstChild("Body") then
+                        FullPath = v
+                        break
+                    end
                 end
             end
             task.wait()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3078.94287, 16.9999962, -540.494385, -0.784964442, 0, 0.619540811, 0, 1, 0, -0.619540811, 0, -0.784964442)
-            MainConsoleLogOutF("Successfully Get Sword")
-            MainConsoleLogOutF("Successfully Teleport")
+            if FullPath then
+                for _, v in pairs(FullPath.Parent.Parent.Katanas:GetChildren()) do
+                    if v and not isPartNearPart(v, FullPath:FindFirstChild("Body"), 20) and v.ProximityPrompt and v.ProximityPrompt.Enabled then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position.X, v.Position.Y, v.Position.Z)
+                        task.wait(0.3)
+                        fireproximityprompt(v.ProximityPrompt)
+                    end
+                end
+                task.wait()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3078.94287, 16.9999962, -540.494385, -0.784964442, 0, 0.619540811, 0, 1, 0, -0.619540811, 0, -0.784964442)
+                MainConsoleLogOutF("Successfully Get Sword")
+                MainConsoleLogOutF("Successfully Teleport")
+            end
         end
     })
     Tabs.B2C3:AddSection("Hell | Jigoku")
@@ -6514,15 +6655,15 @@ do
         Title = "Talk",
         Description = "",
         Callback = function()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Section6.TriggerCutscene.CFrame
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2717.091064453125, 172.54824829101562, 8059.78955078125)
             MainConsoleLogOutF("Successfully Teleport")
         end
     })
     Tabs.B2C3:AddButton({
         Title = "Auto Run",
-        Description = "",
+        Description = "Press after cutscene",
         Callback = function()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Section6.Chase.END.CFrame
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1696.94921875, 245.83494567871094, 7806.041503906259)
             MainConsoleLogOutF("Successfully Teleport")
         end
     })
@@ -6555,12 +6696,14 @@ do
             Yposads = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
             task.wait()
             if game:GetService("Players").LocalPlayer.PlayerGui.DodomekiUI:FindFirstChild("TextHolder") then
+                _G.Float = true
                 repeat 
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X, Yposads+60, game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)
                     task.wait()
                 until not game:GetService("Players").LocalPlayer.PlayerGui.DodomekiUI:FindFirstChild("TextHolder")
                 task.wait()
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(originalPositionofHum)
+                _G.Float = false
             end
             task.wait()
         end
@@ -6991,7 +7134,15 @@ do
             end
         end
     })
-
+    --Xmas2
+    Tabs.Xmas2:AddSection("Teleporter")
+    Tabs.Xmas1:AddButton({
+        Title = "Teleport To Snowy Hell Map",
+        Description = "after press it just go to the cave until yeti spawn",
+        Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1245.6499, 7.51562405, -4272.28125, -0.254058152, 0, -0.967188954, 0, 1, 0, 0.967188954, 0, -0.254058152)
+        end
+    })
     --Halloween1 Halloween trial
     Tabs.Halloween1:AddSection("Tutorial")
     Tabs.Halloween1:AddButton({
@@ -9286,18 +9437,6 @@ Fluent:Notify({
     Content = "Version: Free",
     Duration = 5
 })
-SaveManager:SetLibrary(Fluent)
-InterfaceManager:SetLibrary(Fluent)
-SaveManager:IgnoreThemeSettings()
-SaveManager:SetIgnoreIndexes({})
-InterfaceManager:SetFolder("TTJY HUB")
-SaveManager:SetFolder("The Mimic")
-InterfaceManager:BuildInterfaceSection(Tabs.Settings)
-SaveManager:BuildConfigSection(Tabs.Settings)
-Window:SelectTab(1)
-SaveManager:LoadAutoloadConfig()
-
-finishload = true
 if game.CoreGui:FindFirstChild("TTJY HUB2") then
     game.CoreGui:FindFirstChild("TTJY HUB2"):Destroy()
 end
@@ -9320,6 +9459,19 @@ local function onButtonClick2()
 end
 
 textButton77.MouseButton1Click:Connect(onButtonClick2)
+finishload = true
+
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+SaveManager:IgnoreThemeSettings()
+SaveManager:SetIgnoreIndexes({})
+InterfaceManager:SetFolder("TTJY HUB")
+SaveManager:SetFolder("The Mimic")
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+SaveManager:BuildConfigSection(Tabs.Settings)
+Window:SelectTab(1)
+SaveManager:LoadAutoloadConfig()
+
 
 
 
