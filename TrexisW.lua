@@ -6445,14 +6445,14 @@ do
         Description = "",
         Callback = function()
             for _, v in pairs(workspace["Section2.5"]:GetDescendants()) do
-                if v.Name == "Raft" and v:FindFirstChild("Part") then
-                    if isPlayerNear(v:FindFirstChild("Part"), 30) then
+                if v.Name == "EnzukaiGame" and v:FindFirstChild("ProxPrompt") then
+                    if isPlayerNear(v:FindFirstChild("ProxPrompt"), 30) then
                         while task.wait() do
                             if not v then
                                 break
                             end
-                            if v.Parent.EnzukaiGame.ProxPrompt.ProximityPrompt.Enabled then
-                                fireproximityprompt(v.Parent.EnzukaiGame.ProxPrompt.ProximityPrompt)
+                            if v1.ProxPrompt.ProximityPrompt.Enabled then
+                                fireproximityprompt(v.ProxPrompt.ProximityPrompt)
                             end
                         end
                     end
@@ -6636,7 +6636,7 @@ do
             end
             task.wait()
             if FullPath then
-                for _, v in pairs(FullPath.Parent.Parent.Katanas:GetChildren()) do
+                for _, v in pairs(workspace.Section5.Boss:GetDescendants()) do
                     if v and not isPartNearPart(v, FullPath:FindFirstChild("Body"), 20) and v.ProximityPrompt and v.ProximityPrompt.Enabled then
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position.X, v.Position.Y, v.Position.Z)
                         task.wait(0.3)
