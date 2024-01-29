@@ -2026,6 +2026,9 @@ do
             Title = "Rob Stores",
             Description = "",
             Callback = function()
+                local vim = game:GetService('VirtualInputManager')
+                local u1 = require(game:GetService("ReplicatedStorage").Aero.Shared.Util)
+
                 function Teleport(x,y,z,cd)
                     game.Players.LocalPlayer.Character.Humanoid.Sit = false
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(x,y,z)
@@ -2067,10 +2070,13 @@ do
                     FastTeleport(x, 1000, z, 10000)
                     FastTeleport(x, y, z, 10000)
                 end
-                
+
                 InstaTeleport(540.4615478515625, 116.85466766357422, 2110.83056640625)
+                task.wait()
                 FastTeleport(622.7344970703125, 116.70332336425781, 2163.6865234375, 800)
+                task.wait()
                 FastTeleport(622.7344970703125, 116.70332336425781, 2163.6865234375, 800)
+                task.wait()
                 FastTeleport(642.6666870117188, 116.7034683227539, 2149.5419921875, 800)
                 waitforbutton();
                 setcooldown(0.001);
@@ -2084,6 +2090,7 @@ do
                 setcooldown(0.001);
                 Click(Enum.KeyCode.E, 0.1);
                 FastTeleport(788.7449951171875, 119.40323638916016, 2125.747314453125, 800)
+                task.wait()
                 FastTeleport(838.945556640625, 118.64289093017578, 2136.618408203125, 800)
                 waitforbutton();
                 setcooldown(0.001);
