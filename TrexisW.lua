@@ -1419,6 +1419,7 @@ do
                 FastTeleport(-18.5270176, 25.3447399, -213.466415, 500)
                 task.wait(3)
                 FastTeleport(-37.2067871, 25.0963135, -261.400269, 40)
+                para.CanStart = true
             end
         })
         Tabs.Auto:AddButton({
@@ -2025,7 +2026,42 @@ do
             Title = "Rob Stores",
             Description = "",
             Callback = function()
-                
+                InstaTeleport(540.4615478515625, 116.85466766357422, 2110.83056640625)
+                FastTeleport(622.7344970703125, 116.70332336425781, 2163.6865234375, 800)
+                FastTeleport(622.7344970703125, 116.70332336425781, 2163.6865234375, 800)
+                FastTeleport(642.6666870117188, 116.7034683227539, 2149.5419921875, 800)
+                setcooldown(0.001);
+                task.wait()
+                waitforbutton();
+                Click("E", 0.1, 0.1);
+                FastTeleport(694.66357421875, 116.70399475097656, 2123.079833984375, 800)
+                waitforbutton();
+                Click("E", 0.1, 0.1);
+                FastTeleport(728.1854858398438, 123.59812927246094, 2137.033203125, 800)
+                waitforbutton();
+                Click("E", 0.1, 0.1);
+                FastTeleport(788.7449951171875, 119.40323638916016, 2125.747314453125, 800)
+                FastTeleport(838.945556640625, 118.64289093017578, 2136.618408203125, 800)
+                waitforbutton();
+                Click("E", 0.1, 0.1);
+                FastTeleport(890.339111328125, 117.52401733398438, 2130.8466796875, 800)
+                waitforbutton();
+                Click("E", 0.1, 0.1);
+                FastTeleport(829.1097412109375, 122.08228302001953, 2183.017578125, 800)
+                waitforbutton();
+                Click("E", 0.1, 0.1);
+                FastTeleport(791.8898315429688, 120.65030670166016, 2186.336181640625, 800)
+                waitforbutton();
+                Click("E", 0.1, 0.1);
+                FastTeleport(767.587890625, 124.04059600830078, 2139.49365234375, 800)
+                waitforbutton();
+                Click("E", 0.1, 0.1);
+                FastTeleport(709.9696655273438, 124.3642349243164, 2168.80859375, 800)
+                waitforbutton();
+                Click("E", 0.1, 0.1);
+                FastTeleport(767.9827880859375, 121.03264617919922, 2194.578125, 800)
+                waitforbutton();
+                Click("E", 0.1, 0.1);
             end
         })
     else
