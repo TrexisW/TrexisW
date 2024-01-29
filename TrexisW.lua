@@ -1,21 +1,21 @@
 repeat task.wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer
-local Premium = _G.Premium
-_G.Hwid = nil
+local Premium = getgenv().Premium
+getgenv().Hwid = nil
 local HwidL = game:GetService("RbxAnalyticsService"):GetClientId()
 repeat 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Yumiara/Main/main/Hw.lua"))()
     task.wait(5)
-until _G.Hwid ~= nil
+until getgenv().Hwid ~= nil
 task.wait()
 local fakehwid = {HwidL}
-if _G.Hwid == HwidL then
+if getgenv().Hwid == HwidL then
 	game.Players.LocalPlayer:Kick("YOU ARE BLACKLIST FROM TTJY HUB | nah jk")
 end
-if _G.Hwid == fakehwid then
+if getgenv().Hwid == fakehwid then
 	game.Players.LocalPlayer:Kick("YOU ARE BLACKLIST FROM TTJY HUB | nah jk")
 end
 local function checkHWID()
-    for _, hwid in ipairs(_G.Hwid) do
+    for _, hwid in ipairs(getgenv().Hwid) do
         if HwidL == hwid then
             return true 
         end
@@ -37,18 +37,18 @@ game.StarterGui:SetCore("SendNotification",{
     Text = "Waiting for character";
 })
 repeat task.wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer and game.Players.LocalPlayer.Character
-_G.DeviceType = nil
+getgenv().DeviceType = nil
 local function checkPlatform()
     if game:GetService("UserInputService").TouchEnabled then
         print("User is on a mobile device.")
-        _G.DeviceType = "Mobile"
+        getgenv().DeviceType = "Mobile"
     else
         print("User is on a PC.")
-        _G.DeviceType = "Pc"
+        getgenv().DeviceType = "Pc"
     end
 end
 checkPlatform()
-local Premium = _G.Premium
+local Premium = getgenv().Premium
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -861,7 +861,7 @@ do
     })
     task.wait(0.5)
     Tabs.PlayerTab:AddSection("Aim & Other")
-    if not _G.DeviceType == "Mobile" and not _G.DeviceType2 == "Mobile" then -- Pc
+    if not getgenv().DeviceType == "Mobile" and not getgenv().DeviceType2 == "Mobile" then -- Pc
         local hitboxexpander = Tabs.PlayerTab:AddKeybind("Keybind", {
             Title = "Toggle Hitbox Expander",
             Mode = "Toggle", -- Always, Toggle, Hold
@@ -2022,27 +2022,10 @@ do
         Tabs.Auto:AddSection("Autorob Small Stores & Casino")
 
         Tabs.Auto:AddButton({
-            Title = "Rob Small Stores",
-            Description = "Autorobs the Small Stores",
+            Title = "Rob Stores",
+            Description = "",
             Callback = function()
-                Fluent:Notify({
-                    Title = "Error",
-                    Content = "Script not avaiable",
-                    SubContent = "discord.gg/ttjy", -- Optional
-                    Duration = 5 -- Set to nil to make the notification not disappear
-                })
-            end
-        })
-        Tabs.Auto:AddButton({
-            Title = "Rob Serverhop Small Stores",
-            Description = "Rob Small Stores over Servers",
-            Callback = function()
-                Fluent:Notify({
-                    Title = "Error",
-                    Content = "Script not avaiable",
-                    SubContent = "discord.gg/ttjy", -- Optional
-                    Duration = 5 -- Set to nil to make the notification not disappear
-                })
+                
             end
         })
     else
@@ -3530,7 +3513,7 @@ end)
         end
     end)
 end
-if _G.Addons then
+if getgenv().Addons then
     SaveManager:SetLibrary(Fluent)
     InterfaceManager:SetLibrary(Fluent)
     SaveManager:IgnoreThemeSettings()
