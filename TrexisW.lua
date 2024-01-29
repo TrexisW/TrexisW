@@ -2026,6 +2026,48 @@ do
             Title = "Rob Stores",
             Description = "",
             Callback = function()
+                function Teleport(x,y,z,cd)
+                    game.Players.LocalPlayer.Character.Humanoid.Sit = false
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(x,y,z)
+                    task.wait(cd)
+                    game.Players.LocalPlayer.Character.Humanoid.Sit = false
+                end
+                function FastTeleport(x, y, z, speed)
+                    local targetPosition = Vector3.new(x, y, z)
+                    local speed = speed
+                    local maxForce = Vector3.new(math.huge, math.huge, math.huge)
+                
+                    local velocity = Instance.new("BodyVelocity")
+                    velocity.MaxForce = maxForce
+                    velocity.Velocity = Vector3.new(0, 0, 0)
+                    velocity.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+                
+                    while true do
+                        local currentPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                        local direction = (targetPosition - currentPos).unit
+                        local distance = (targetPosition - currentPos).magnitude
+                        local distanceCheck = speed/30
+                        if distance >= distanceCheck then
+                            velocity.Velocity = direction * speed
+                        else
+                            velocity:Destroy()
+                            for i = 1, 20 do
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+                                task.wait()
+                            end
+                            break
+                        end
+                        wait()
+                    end
+                end
+                function InstaTeleport(x, y, z)
+                    local LPRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+                    FastTeleport(LPRootPart.CFrame.X, 1000, LPRootPart.CFrame.Z, 10000)
+                    FastTeleport(x, 1000, z, 10000)
+                    FastTeleport(x, y, z, 10000)
+                end
+                
                 InstaTeleport(540.4615478515625, 116.85466766357422, 2110.83056640625)
                 FastTeleport(622.7344970703125, 116.70332336425781, 2163.6865234375, 800)
                 FastTeleport(622.7344970703125, 116.70332336425781, 2163.6865234375, 800)
