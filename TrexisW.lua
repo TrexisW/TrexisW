@@ -2119,6 +2119,50 @@ do
                 waitforbutton();
                 setcooldown(0.001);
                 Click(Enum.KeyCode.E, 0.1);
+                FastTeleport(702.4630737304688, 121.34675598144531, 2239.095947265625, 800)
+                waitforbutton();
+                setcooldown(0.001);
+                Click(Enum.KeyCode.E, 0.1);
+                FastTeleport(662.1705322265625, 121.3099365234375, 2248.248291015625, 800)
+                waitforbutton();
+                setcooldown(0.001);
+                Click(Enum.KeyCode.E, 0.1);
+                FastTeleport(642.0556030273438, 128.21676635742188, 2258.968017578125, 800)
+                waitforbutton();
+                setcooldown(0.001);
+                Click(Enum.KeyCode.E, 0.1);
+                FastTeleport(556.9116821289062, 124.25359344482422, 2246.234619140625, 800)
+                waitforbutton();
+                setcooldown(0.001);
+                Click(Enum.KeyCode.E, 0.1);
+                FastTeleport(501.0550537109375, 123.01587677001953, 2276.255126953125, 800)
+                waitforbutton();
+                setcooldown(0.001);
+                Click(Enum.KeyCode.E, 0.1);
+                FastTeleport(495.6616516113281, 124.47989654541016, 2341.00146484375, 800)
+                waitforbutton();
+                setcooldown(0.001);
+                Click(Enum.KeyCode.E, 0.1);
+                FastTeleport(399.9210205078125, 120.48485565185547, 2321.237060546875, 800)
+                waitforbutton();
+                setcooldown(0.001);
+                Click(Enum.KeyCode.E, 0.1);
+                FastTeleport(395.8113098144531, 116.99333953857422, 2338.422119140625, 800)
+                waitforbutton();
+                setcooldown(0.001);
+                Click(Enum.KeyCode.E, 0.1);
+                task.wait(0.128)
+                waitforbutton();
+                setcooldown(0.001);
+                Click(Enum.KeyCode.E, 0.1);
+                FastTeleport(479.4548034667969, 116.7019271850586, 2296.923095703125, 800)
+                FastTeleport(510.13128662109375, 116.91466522216797, 2117.385498046875, 800)
+                InstaTeleport(-1771.58984375, 39.69039535522461, 1100.8414306640625)
+                FastTeleport(-1800.587646484375, 39.69044494628906, 1143.1771240234375, 800)
+                FastTeleport(-1847.6756591796875, 42.525325775146484, 1134.6988525390625, 800)
+                waitforbutton();
+                setcooldown(0.001);
+                Click(Enum.KeyCode.E, 0.1);
             end
         })
     else
