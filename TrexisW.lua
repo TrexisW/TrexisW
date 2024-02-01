@@ -7532,7 +7532,7 @@ Setting.newToggle("Big/Small", "W A S D Buttons", false, function(Value)
         game.CoreGui["InputPcToMobile"].D.Size = UDim2.new(0.05, 0, 0.05, 0)
     end
 end)
-Setting.newToggle("Hide/Show", "Console Button", false, function(Value)
+Setting.newToggle("Hide/Show", "Console Button", true, function(Value)
     if Value then
         for _, v in pairs(game:GetService("CoreGui"):GetChildren()) do
             if v.Name == "TTJY HUB2" then
@@ -7558,15 +7558,23 @@ end)
 
 --Credits Tab
 local Credits = DrRayLibrary.newTab("Credits")
-Credits.newLabel("Developer - ttjy.")
+Credits.newLabel("Owner - ttjy.")
+Credits.newLabel("Co Owner - ttjy#1778")
+Credits.newLabel("Scripter - ttjy.")
+Credits.newLabel("Scripter - ttjy#1778")
+Credits.newLabel("Scripter - Poom Hub")
 Credits.newLabel("Bypasser - ttjy.")
 Credits.newLabel("Bypasser - Bedol Hub")
 Credits.newLabel("Bypasser - Poom Hub")
+Credits.newLabel("Bypasser - ttjy#1778")
 Credits.newLabel("Ui - ttjy.")
 Credits.newLabel("Helper - Uranium Hub")
 Credits.newLabel("Helper - Ktollt")
 Credits.newLabel("Helper - Xvasx")
 Credits.newLabel("Helper - nar")
+Credits.newLabel("Helper - ruenas")
+Credits.newLabel("Special Thanks To sa.l")
+
 
 
 
@@ -7586,6 +7594,7 @@ textButton77.Position = UDim2.new(0.6, -45, 0, -40)
 textButton77.TextColor3 = Color3.new(1, 0, 0)
 textButton77.BackgroundColor3 = Color3.new(0, 0, 0)
 textButton77.BackgroundTransparency = 0.7
+textButton77.Visible = false
 textButton77.Parent = screenGui77
 
 local function onButtonClick2()
