@@ -7532,7 +7532,6 @@ Setting.newToggle("Big/Small", "W A S D Buttons", false, function(Value)
         game.CoreGui["InputPcToMobile"].D.Size = UDim2.new(0.05, 0, 0.05, 0)
     end
 end)
-game:GetService("CoreGui")["TTJY HUB2"].TextButton
 Setting.newToggle("Hide/Show", "Console Button", false, function(Value)
     if Value then
         for _, v in pairs(game:GetService("CoreGui"):GetChildren()) do
