@@ -7532,6 +7532,22 @@ Setting.newToggle("Big/Small", "W A S D Buttons", false, function(Value)
         game.CoreGui["InputPcToMobile"].D.Size = UDim2.new(0.05, 0, 0.05, 0)
     end
 end)
+game:GetService("CoreGui")["TTJY HUB2"].TextButton
+Setting.newToggle("Hide/Show", "Console Button", false, function(Value)
+    if Value then
+        for _, v in pairs(game:GetService("CoreGui"):GetChildren()) do
+            if v.Name == "TTJY HUB2" then
+                v.TextButton.Visible = false
+            end
+        end
+    else
+        for _, v in pairs(game:GetService("CoreGui"):GetChildren()) do
+            if v.Name == "TTJY HUB2" then
+                v.TextButton.Visible = true
+            end
+        end
+    end
+end)
 Setting.newToggle("Custom Prompt", "Method 2", true, function(Value)
     if Value then
         CustomFirePropmt = true
@@ -7551,7 +7567,7 @@ Credits.newLabel("Ui - ttjy.")
 Credits.newLabel("Helper - Uranium Hub")
 Credits.newLabel("Helper - Ktollt")
 Credits.newLabel("Helper - Xvasx")
-
+Credits.newLabel("Helper - nar")
 
 
 
