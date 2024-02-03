@@ -7318,6 +7318,7 @@ NMCS.newButton("Auto Kill", "", function()
         getgenv().Float = true
         workspace.Section3.Boss.MagicianBoss.AnimationController.AnimationPlayed:Connect(function(anima)
             while true do
+                getgenv().Float = true
                 if anima.Speed < 0.1 then
                     if Backpack:FindFirstChild("Knife") then
                         Backpack.Knife.Parent = char
@@ -7331,16 +7332,15 @@ NMCS.newButton("Auto Kill", "", function()
                     else
 
                     end
-                    if workspace.Section3.Boss.DamageParts.Combo1.Transparency == 0 then
+                    if workspace.Section3.Boss.DamageParts.Combo1.Transparency == 0 and Backpack:FindFirstChild("Knife") then
                         char.HumanoidRootPart.CFrame = workspace.Section3.Boss.MagicianBoss.RightHitbox.CFrame
                         char.Knife:Activate()
-                    elseif workspace.Section3.Boss.DamageParts.Combo2.Transparency == 0 or workspace.Section3.Boss.DamageParts.SlamAttack then
+                    elseif workspace.Section3.Boss.DamageParts.Combo2.Transparency == 0 and Backpack:FindFirstChild("Knife") or workspace.Section3.Boss.DamageParts.SlamAttack and Backpack:FindFirstChild("Knife") then
                         char.HumanoidRootPart.CFrame = workspace.Section3.Boss.MagicianBoss.LeftHitbox.CFrame
                         char.Knife:Activate()
                     else
     
                     end
-                    task.wait()
                 else
                     Tp(-1654.51294, 28.076046, -969.053711, nil)
                 end
@@ -7351,6 +7351,7 @@ NMCS.newButton("Auto Kill", "", function()
         getgenv().Float = true
         workspace.Section3.Boss.MagicianBoss.AnimationController.AnimationPlayed:Connect(function(anima)
             while true do
+                getgenv().Float = true
                 if anima.Speed < 0.1 then
                     if Backpack:FindFirstChild("Knife") then
                         Backpack.Knife.Parent = char
@@ -7364,16 +7365,15 @@ NMCS.newButton("Auto Kill", "", function()
                     else
 
                     end
-                    if workspace.Section3.Boss.DamageParts.Combo1.Transparency == 0 then
+                    if workspace.Section3.Boss.DamageParts.Combo1.Transparency == 0 and Backpack:FindFirstChild("Knife") then
                         char.HumanoidRootPart.CFrame = workspace.Section3.Boss.MagicianBoss.RightHitbox.CFrame
                         char.Knife:Activate()
-                    elseif workspace.Section3.Boss.DamageParts.Combo2.Transparency == 0 or workspace.Section3.Boss.DamageParts.SlamAttack then
+                    elseif workspace.Section3.Boss.DamageParts.Combo2.Transparency == 0 and Backpack:FindFirstChild("Knife") or workspace.Section3.Boss.DamageParts.SlamAttack and Backpack:FindFirstChild("Knife") then
                         char.HumanoidRootPart.CFrame = workspace.Section3.Boss.MagicianBoss.LeftHitbox.CFrame
                         char.Knife:Activate()
                     else
     
                     end
-                    task.wait()
                 else
                     Tp(-1654.51294, 28.076046, -969.053711, nil)
                 end
