@@ -5127,7 +5127,7 @@ B2C3.newButton("Auto Run", "", function()
 end)
 B2C3.newLabel("Enzaukai Game")
 B2C3.newButton("Auto Win", "", function()
-    for _, v in pairs(workspace["Section2.5"]:GetDescendants()) do
+    for _, v in pairs(workspace:GetDescendants()) do
         if v:IsA("ProximityPrompt") then
             if isPlayerNear(v.Parent, 100) then
                 while task.wait() do
@@ -5138,6 +5138,7 @@ B2C3.newButton("Auto Win", "", function()
                         fireproximityprompt(v)
                     end
                 end
+                task.wait()
             end
         end
     end
