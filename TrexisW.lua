@@ -602,7 +602,7 @@ end
 game:GetService("RunService").RenderStepped:Connect(updatePartPosition)
 DamageAura = true
 Fast = true
-NeedAttacking = true
+NeedAttacking = false
 -- \\ GetHits / Canhits // --
 getHits = function(Size)
 local Hits = {}
@@ -890,7 +890,7 @@ end)()
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
-
+repeat task.wait() until Fluent and SaveManager and InterfaceManager
 local Window = Fluent:CreateWindow({
     Title = "Blox fruit Script v.UP1FV",
     SubTitle = "by TTJY",
@@ -908,22 +908,13 @@ local Tabs = {
 
 local Options = Fluent.Options
 
-task.wait()
-
-Window.Minimized = not Window.Minimized
-Window.Root.Visible = not Window.Minimized
-
 do
     Tabs.Main:AddSection("Auto Farm")
     local AutoFarmLevel = Tabs.Main:AddToggle("AutoFarmLevel", {Title = "Auto Farm Level", Default = false })
 
     AutoFarmLevel:OnChanged(function()
         getgenv().AutoFarmLevel = Options.AutoFarmLevel.Value
-    end)
-    local AutoFarmLevelSetting = Tabs.Main:AddToggle("AutoFarmLevelSetting", {Title = "Fast Attack", Default = false })
-
-    AutoFarmLevelSetting:OnChanged(function()
-        Attack = Options.AutoFarmLevelSetting.Value
+        NeedAttacking = Options.AutoFarmLevel.Value
     end)
 end
 
