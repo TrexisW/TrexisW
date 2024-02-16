@@ -913,6 +913,20 @@ task.wait()
 Window.Minimized = not Window.Minimized
 Window.Root.Visible = not Window.Minimized
 
+do
+    Tabs.Main:AddSection("Auto Farm")
+    local AutoFarmLevel = Tabs.Main:AddToggle("AutoFarmLevel", {Title = "Auto Farm Level", Default = false })
+
+    AutoFarmLevel:OnChanged(function()
+        getgenv().AutoFarmLevel = Options.AutoFarmLevel.Value
+    end)
+    local AutoFarmLevelSetting = Tabs.Main:AddToggle("AutoFarmLevelSetting", {Title = "Fast Attack", Default = false })
+
+    AutoFarmLevelSetting:OnChanged(function()
+        Attack = Options.AutoFarmLevelSetting.Value
+    end)
+end
+
 if game.CoreGui:FindFirstChild("TTJY HUB") then
     game.CoreGui:FindFirstChild("TTJY HUB"):Destroy()
 end
@@ -990,24 +1004,3 @@ createButton("S", UDim2.new(0.05, 0, 0.3, 0))
 task.wait(1)
 createButton("D", UDim2.new(0.1, 0, 0.2, 0))
 task.wait(1)
-
-do
-    Tabs.Main:AddSection("Auto Farm")
-    local AutoFarmLevel = Tabs.Main:AddToggle("AutoFarmLevel", {Title = "Auto Farm Level", Default = false })
-
-    AutoFarmLevel:OnChanged(function()
-        while Options.AutoFarmLevel.Value do
-            getgenv().AutoFarmLevel = Options.AutoFarmLevel.Value
-            NeedAttacking = Options.AutoFarmLevel.Value
-            task.wait(3)
-        end
-    end)
-    local AutoFarmLevelSetting = Tabs.Main:AddToggle("AutoFarmLevelSetting", {Title = "Fast Attack", Default = false })
-
-    AutoFarmLevelSetting:OnChanged(function()
-        while Options.AutoFarmLevelSetting.Value do
-            Attack = Options.AutoFarmLevelSetting.Value
-            task.wait(3)
-        end
-    end)
-end
