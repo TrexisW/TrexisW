@@ -5,6 +5,7 @@ local QuestLv = nil
 local NameMon = nil
 local CFrameQ = nil
 local CFrameMon = nil
+local RunService = game:GetService("RunService")
 getgenv().AuraMaterialType1 = false
 getgenv().AutoMaterial = false
 getgenv().AutoFarmLevel = false
@@ -565,19 +566,19 @@ task.wait()
 end
 end
 local function tpwithnewtpbyme2(xyz,speedoftpNTP)
-local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
-local p = hrd.Position
-local currentPos = Vector3.new(p.x, p.y, p.z)
-local targetPos = xyz.Position
+    local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local p = hrd.Position
+    local currentPos = Vector3.new(p.x, p.y, p.z)
+    local targetPos = xyz.Position
 
-local direction = (targetPos - currentPos).Unit
-local distance = (targetPos - currentPos).Magnitude
-local steps = math.floor(distance / speedoftpNTP) 
-for i = 1, steps do
-currentPos = currentPos + direction * speedoftpNTP 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
-task.wait()
-end
+    local direction = (targetPos - currentPos).Unit
+    local distance = (targetPos - currentPos).Magnitude
+    local steps = math.floor(distance / speedoftpNTP) 
+    for i = 1, steps do
+        currentPos = currentPos + direction * speedoftpNTP 
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait()
+    end
 end
 local Part = Instance.new("Part")
 Part.Size = Vector3.new(2, 0.2, 1.5)
@@ -803,76 +804,80 @@ if #canHits > 0 then
 end
 end
 end)
-while getgenv().AutoFarmLevel do
-    CheckLevel()
-    float = true
-    tpwithnewtpbyme2(CFrameQ, 5)
-    task.wait(1)
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-    task.wait(3)
-    tpwithnewtpbyme2(CFrameMon, 5)
-    repeat
-        for _,v in pairs(workspace.Enemies:GetChildren()) do
-            if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel then
-                local MobHumP = v.HumanoidRootPart.Position
-                Attack = true
-                repeat
-                tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
-                wait()
-                until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
-            end
-        end
-        tpwithnewtpbyme2(CFrameMon, 10)
-        task.wait()
-    until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
-    Attack = false
-    task.wait()
-end
-while getgenv().AuraMaterialType1 and getgenv().AutoMaterial do
-    float = true
-    if getgenv().CustomQuest then
+game:GetService("RunService").RenderStepped:Connect(function()
+    if getgenv().AutoFarmLevel then
+        CheckLevel()
+        float = true
         tpwithnewtpbyme2(CFrameQ, 5)
         task.wait(1)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
         task.wait(3)
-    else
+        tpwithnewtpbyme2(CFrameMon, 5)
+        repeat
+            for _,v in pairs(workspace.Enemies:GetChildren()) do
+                if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel then
+                    local MobHumP = v.HumanoidRootPart.Position
+                    Attack = true
+                    repeat
+                    tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
+                    wait()
+                    until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
+                end
+            end
+            tpwithnewtpbyme2(CFrameMon, 10)
+            task.wait()
+        until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
+        Attack = false
+        task.wait()
+    end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+    if getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
+        float = true
+        if getgenv().CustomQuest then
+            tpwithnewtpbyme2(CFrameQ, 5)
+            task.wait(1)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+            task.wait(3)
+        else
 
-    end
-    tpwithnewtpbyme2(CFrameMon, 5)
-    if getgenv().CustomQuest then
-        repeat
-            for _,v in pairs(workspace.Enemies:GetChildren()) do
-                if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 and getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
-                    local MobHumP = v.HumanoidRootPart.Position
-                    Attack = true
-                    repeat
-                    tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
-                    wait()
-                    until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+        end
+        tpwithnewtpbyme2(CFrameMon, 5)
+        if getgenv().CustomQuest then
+            repeat
+                for _,v in pairs(workspace.Enemies:GetChildren()) do
+                    if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 and getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
+                        local MobHumP = v.HumanoidRootPart.Position
+                        Attack = true
+                        repeat
+                        tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
+                        wait()
+                        until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                    end
                 end
-            end
-            tpwithnewtpbyme2(CFrameMon, 10)
-            task.wait()
-        until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
-    else
-        repeat
-            for _,v in pairs(workspace.Enemies:GetChildren()) do
-                if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 and getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
-                    local MobHumP = v.HumanoidRootPart.Position
-                    Attack = true
-                    repeat
-                    tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
-                    wait()
-                    until v.Humanoid.Health == 0 or not getgenv().AutoMaterial
+                tpwithnewtpbyme2(CFrameMon, 10)
+                task.wait()
+            until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+        else
+            repeat
+                for _,v in pairs(workspace.Enemies:GetChildren()) do
+                    if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 and getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
+                        local MobHumP = v.HumanoidRootPart.Position
+                        Attack = true
+                        repeat
+                        tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
+                        wait()
+                        until v.Humanoid.Health == 0 or not getgenv().AutoMaterial
+                    end
                 end
-            end
-            tpwithnewtpbyme2(CFrameMon, 10)
-            task.wait()
-        until not getgenv().AutoMaterial
+                tpwithnewtpbyme2(CFrameMon, 10)
+                task.wait()
+            until not getgenv().AutoMaterial
+        end
+        Attack = false
+        task.wait()
     end
-    Attack = false
-    task.wait()
-end
+end)
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
