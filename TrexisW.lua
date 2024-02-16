@@ -10,6 +10,7 @@ getgenv().AuraMaterialType1 = false
 getgenv().AutoMaterial = false
 getgenv().AutoFarmLevel = false
 getgenv().CustomQuest = false
+getgenv().Attack = false
 Old_World = false
 New_World = false
 Third_World = false
@@ -772,36 +773,36 @@ if canHits and #canHits > 0 then
 end
 end
 while RunService.Stepped:Wait() do
-if #canHits > 0 then
-    Controller = Data.activeController
-    if NormalClick then
-        pcall(task.spawn,Controller.attack,Controller)
-    end
-    if Controller and Controller.equipped and Controller.currentWeaponModel then
-        if (NeedAttacking and DamageAura) then
-            if Fast and tick() > AttackCD and not DisableFastAttack then
-                resetCD()
+    if #canHits > 0 then
+        Controller = Data.activeController
+        if NormalClick then
+            pcall(task.spawn,Controller.attack,Controller)
+        end
+        if Controller and Controller.equipped and Controller.currentWeaponModel then
+            if (NeedAttacking and DamageAura) then
+                if Fast and tick() > AttackCD and not DisableFastAttack then
+                    resetCD()
+                end
+                if tick() - lastFireValid > 0.5 or not Fast then
+                    Controller.timeToNextAttack = 0
+                    Controller.hitboxMagnitude = 65
+                    pcall(task.spawn,Controller.attack,Controller)
+                    lastFireValid = tick()
+                end
+                local AID3 = Controller.anims.basic[3]
+                local AID2 = Controller.anims.basic[2]
+                local ID = AID3 or AID2
+                Animation.AnimationId = ID
+                local Playing = Controller.humanoid:LoadAnimation(Animation)
+                Playing:Play(0.00075,0.01,0.01)
+                RigEvent.FireServer(RigEvent,"hit",canHits,AID3 and 3 or 2,"")
+                -- AttackSignal:Fire()
+                delay(.5,function()
+                    Playing:Stop()
+                end)
             end
-            if tick() - lastFireValid > 0.5 or not Fast then
-                Controller.timeToNextAttack = 0
-                Controller.hitboxMagnitude = 65
-                pcall(task.spawn,Controller.attack,Controller)
-                lastFireValid = tick()
-            end
-            local AID3 = Controller.anims.basic[3]
-            local AID2 = Controller.anims.basic[2]
-            local ID = AID3 or AID2
-            Animation.AnimationId = ID
-            local Playing = Controller.humanoid:LoadAnimation(Animation)
-            Playing:Play(0.00075,0.01,0.01)
-            RigEvent.FireServer(RigEvent,"hit",canHits,AID3 and 3 or 2,"")
-            -- AttackSignal:Fire()
-            delay(.5,function()
-                Playing:Stop()
-            end)
         end
     end
-end
 end
 end)
 coroutine.wrap(function()
@@ -816,15 +817,16 @@ coroutine.wrap(function()
             tpwithnewtpbyme2(CFrameMon, 5)
             repeat
                 for _,v in pairs(workspace.Enemies:GetChildren()) do
-                    warn("v ".. v.Name)
-                    if (v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true) or getgenv().AutoFarmLevel then
-                        local MobHumP = v.HumanoidRootPart.Position
-                        Attack = true
-                        warn(NameMon)
-                        repeat
-                            tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
-                            wait()
-                        until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
+                    if v and v.Name == tostring(NameMon) then
+                        if v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                            local MobHumP = v.HumanoidRootPart.Position
+                            Attack = true
+                            warn(NameMon)
+                            repeat
+                                tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
+                                wait()
+                            until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
+                        end
                     end
                 end
                 tpwithnewtpbyme2(CFrameMon, 10)
@@ -994,6 +996,10 @@ do
     local AutoFarmLevel = Tabs.Main:AddToggle("AutoFarmLevel", {Title = "Auto Farm Level", Default = false })
 
     AutoFarmLevel:OnChanged(function()
-        getgenv().AutoFarmLevel = Options.AutoFarmLevel.Value
+        while Options.AutoFarmLevel.Value do
+            getgenv().AutoFarmLevel = Options.AutoFarmLevel.Value
+            NeedAttacking = Options.AutoFarmLevel.Value
+            task.wait(3)
+        end
     end)
 end
