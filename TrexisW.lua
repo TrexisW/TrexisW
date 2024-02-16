@@ -730,28 +730,28 @@ if canHits and #canHits > 0 then
 end
 end
 task.spawn(function()
-local Data = Combat
-local Blank = function() end
-local RigEvent = game:GetService("ReplicatedStorage").RigControllerEvent
-local Animation = Instance.new("Animation")
-local RecentlyFired = 0
-local AttackCD = 0
-local Controller
-local lastFireValid = 0
-local MaxLag = 350
-fucker = 0.07
-TryLag = 0
-local resetCD = function()
-local WeaponName = Controller.currentWeaponModel.Name
-local Cooldown = {
-    combat = 0.07
-}
-AttackCD = tick() + (fucker and Cooldown[WeaponName:lower()] or fucker or 0.285) + ((TryLag/MaxLag)*0.3)
-RigEvent.FireServer(RigEvent,"weaponChange",WeaponName)
-TryLag = TryLag + 1
-task.delay((fucker or 0.285) + (TryLag+0.5/MaxLag)*0.3,function()
-    TryLag = TryLag - 1
-end)
+    local Data = Combat
+    local Blank = function() end
+    local RigEvent = game:GetService("ReplicatedStorage").RigControllerEvent
+    local Animation = Instance.new("Animation")
+    local RecentlyFired = 0
+    local AttackCD = 0
+    local Controller
+    local lastFireValid = 0
+    local MaxLag = 350
+    fucker = 0.07
+    TryLag = 0
+    local resetCD = function()
+    local WeaponName = Controller.currentWeaponModel.Name
+    local Cooldown = {
+        combat = 0.07
+    }
+    AttackCD = tick() + (fucker and Cooldown[WeaponName:lower()] or fucker or 0.285) + ((TryLag/MaxLag)*0.3)
+    RigEvent.FireServer(RigEvent,"weaponChange",WeaponName)
+    TryLag = TryLag + 1
+    task.delay((fucker or 0.285) + (TryLag+0.5/MaxLag)*0.3,function()
+        TryLag = TryLag - 1
+    end)
 end
 if not shared.orl then shared.orl = RL.wrapAttackAnimationAsync end
 if not shared.cpc then shared.cpc = PC.play end
@@ -816,12 +816,12 @@ coroutine.wrap(function()
             tpwithnewtpbyme2(CFrameMon, 5)
             repeat
                 for _,v in pairs(workspace.Enemies:GetChildren()) do
-                    if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel then
+                    if (v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true) or getgenv().AutoFarmLevel then
                         local MobHumP = v.HumanoidRootPart.Position
                         Attack = true
                         repeat
-                        tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
-                        wait()
+                            tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
+                            wait()
                         until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
                     end
                 end
