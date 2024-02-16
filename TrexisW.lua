@@ -686,6 +686,7 @@ task.spawn(function()
 		end
 	end
 end)
+local shared = getgenv()
 local Data = Combat
 local Blank = function() end
 local RigEvent = game:GetService("ReplicatedStorage").RigControllerEvent
