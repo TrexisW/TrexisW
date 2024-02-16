@@ -816,9 +816,11 @@ coroutine.wrap(function()
             tpwithnewtpbyme2(CFrameMon, 5)
             repeat
                 for _,v in pairs(workspace.Enemies:GetChildren()) do
+                    warn("v ".. v)
                     if (v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true) or getgenv().AutoFarmLevel then
                         local MobHumP = v.HumanoidRootPart.Position
                         Attack = true
+                        warn(NameMon)
                         repeat
                             tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
                             wait()
