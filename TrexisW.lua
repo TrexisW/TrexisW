@@ -1002,4 +1002,12 @@ do
             task.wait(3)
         end
     end)
+    local AutoFarmLevelSetting = Tabs.Main:AddToggle("AutoFarmLevelSetting", {Title = "Fast Attack", Default = false })
+
+    AutoFarmLevelSetting:OnChanged(function()
+        while Options.AutoFarmLevelSetting.Value do
+            Attack = Options.AutoFarmLevelSetting.Value
+            task.wait(3)
+        end
+    end)
 end
