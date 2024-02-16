@@ -804,7 +804,7 @@ if #canHits > 0 then
 end
 end
 end)
-game:GetService("RunService").RenderStepped:Connect(function()
+while task.wait() do
     if getgenv().AutoFarmLevel then
         CheckLevel()
         float = true
@@ -830,8 +830,8 @@ game:GetService("RunService").RenderStepped:Connect(function()
         Attack = false
         task.wait()
     end
-end)
-game:GetService("RunService").RenderStepped:Connect(function()
+end
+while task.wait() do
     if getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
         float = true
         if getgenv().CustomQuest then
@@ -877,7 +877,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
         Attack = false
         task.wait()
     end
-end)
+end
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
@@ -898,6 +898,7 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
+local Options = Fluent.Options
 
 task.wait()
 
@@ -981,8 +982,6 @@ createButton("S", UDim2.new(0.05, 0, 0.3, 0))
 task.wait(1)
 createButton("D", UDim2.new(0.1, 0, 0.2, 0))
 task.wait(1)
-
-local Options = Fluent.Options
 
 do
     Tabs.Main:AddSection("Auto Farm")
