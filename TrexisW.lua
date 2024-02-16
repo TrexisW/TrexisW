@@ -804,74 +804,74 @@ end
 end
 end)
 while getgenv().AutoFarmLevel do
-CheckLevel()
-float = true
-tpwithnewtpbyme2(CFrameQ, 5)
-task.wait(1)
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-task.wait(3)
-tpwithnewtpbyme2(CFrameMon, 5)
-repeat
-for _,v in pairs(workspace.Enemies:GetChildren()) do
-    if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel then
-        local MobHumP = v.HumanoidRootPart.Position
-        Attack = true
-        repeat
-        tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
-        wait()
-        until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
-    end
-end
-tpwithnewtpbyme2(CFrameMon, 10)
-task.wait()
-until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
-Attack = false
-task.wait()
+    CheckLevel()
+    float = true
+    tpwithnewtpbyme2(CFrameQ, 5)
+    task.wait(1)
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+    task.wait(3)
+    tpwithnewtpbyme2(CFrameMon, 5)
+    repeat
+        for _,v in pairs(workspace.Enemies:GetChildren()) do
+            if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel then
+                local MobHumP = v.HumanoidRootPart.Position
+                Attack = true
+                repeat
+                tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
+                wait()
+                until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
+            end
+        end
+        tpwithnewtpbyme2(CFrameMon, 10)
+        task.wait()
+    until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
+    Attack = false
+    task.wait()
 end
 while getgenv().AuraMaterialType1 and getgenv().AutoMaterial do
-float = true
-if getgenv().CustomQuest then
-tpwithnewtpbyme2(CFrameQ, 5)
-task.wait(1)
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-task.wait(3)
-else
+    float = true
+    if getgenv().CustomQuest then
+        tpwithnewtpbyme2(CFrameQ, 5)
+        task.wait(1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+        task.wait(3)
+    else
 
-end
-tpwithnewtpbyme2(CFrameMon, 5)
-if getgenv().CustomQuest then
-repeat
-for _,v in pairs(workspace.Enemies:GetChildren()) do
-    if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 and getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
-        local MobHumP = v.HumanoidRootPart.Position
-        Attack = true
+    end
+    tpwithnewtpbyme2(CFrameMon, 5)
+    if getgenv().CustomQuest then
         repeat
-        tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
-        wait()
-        until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+            for _,v in pairs(workspace.Enemies:GetChildren()) do
+                if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 and getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
+                    local MobHumP = v.HumanoidRootPart.Position
+                    Attack = true
+                    repeat
+                    tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
+                    wait()
+                    until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                end
+            end
+            tpwithnewtpbyme2(CFrameMon, 10)
+            task.wait()
+        until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+    else
+        repeat
+            for _,v in pairs(workspace.Enemies:GetChildren()) do
+                if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 and getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
+                    local MobHumP = v.HumanoidRootPart.Position
+                    Attack = true
+                    repeat
+                    tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
+                    wait()
+                    until v.Humanoid.Health == 0 or not getgenv().AutoMaterial
+                end
+            end
+            tpwithnewtpbyme2(CFrameMon, 10)
+            task.wait()
+        until not getgenv().AutoMaterial
     end
-end
-tpwithnewtpbyme2(CFrameMon, 10)
-task.wait()
-until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
-else
-repeat
-    for _,v in pairs(workspace.Enemies:GetChildren()) do
-        if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 and getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
-            local MobHumP = v.HumanoidRootPart.Position
-            Attack = true
-            repeat
-            tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
-            wait()
-            until v.Humanoid.Health == 0 or not getgenv().AutoMaterial
-        end
-    end
-    tpwithnewtpbyme2(CFrameMon, 10)
+    Attack = false
     task.wait()
-until not getgenv().AutoMaterial
-end
-Attack = false
-task.wait()
 end
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -976,6 +976,8 @@ createButton("S", UDim2.new(0.05, 0, 0.3, 0))
 task.wait(1)
 createButton("D", UDim2.new(0.1, 0, 0.2, 0))
 task.wait(1)
+
+local Options = Fluent.Options
 
 do
     Tabs.Main:AddSection("Auto Farm")
