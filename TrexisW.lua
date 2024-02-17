@@ -886,6 +886,17 @@ coroutine.wrap(function()
         end
     end
 end)()
+coroutine.wrap(function()
+    while task.wait() do
+        if getgenv().AutoFarmLevel or getgenv().AuraMaterialType1 or getgenv().AutoMaterial then
+            float = true
+            NeedAttacking = true
+        else
+            float = false
+            NeedAttacking = false
+        end
+    end
+end)()
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
@@ -914,7 +925,6 @@ do
 
     AutoFarmLevel:OnChanged(function()
         getgenv().AutoFarmLevel = Options.AutoFarmLevel.Value
-        NeedAttacking = Options.AutoFarmLevel.Value
     end)
     local FastAttack = Tabs.Main:AddToggle("FastAttack", {Title = "Fast Attack", Default = false })
 
