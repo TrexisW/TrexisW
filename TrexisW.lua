@@ -772,7 +772,7 @@ local function tpwithnewtpbyme2(xyz,speedoftpNTP)
     local steps = math.floor(distance / speedoftpNTP) 
     for i = 1, steps do
         if not game.Players.LocalPlayer.Character.Humanoid then
-            repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
+            repeat task.wait(0.175) until game.Players.LocalPlayer.Character.Humanoid
         end
         currentPos = currentPos + direction * speedoftpNTP 
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
@@ -1060,32 +1060,24 @@ coroutine.wrap(function()
             CheckLevel()
             task.wait(0.657)
             if InstanceTp then
-                print("1")
                 repeat
                     wait(0.175)
-                    print("2")
-                    if InstanceTp and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 500 then
-                        print("3")
+                    if InstanceTp and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 500 then
                         game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
                         wait()
                         game.Players.LocalPlayer.Character.Humanoid.Health = 0
-                        print("4")
                         repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
-                        print("5")
                         game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
                         game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
                         game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
-                        print("6")
                     else
                         break
                     end
                     wait()
-                    print("7")
                 until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 500 and InstanceTp
-                print("8")
             end
             task.wait()
-            print("9")
+            repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
             if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                 tpwithnewtpbyme2(CFrameQ, 5)
                 task.wait(1)
@@ -1100,6 +1092,7 @@ coroutine.wrap(function()
                         if v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                             Attack = true
                             repeat
+                                repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
                                 MobHumP = v.HumanoidRootPart.Position
                                 tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
                                 wait()
