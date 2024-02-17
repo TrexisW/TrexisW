@@ -1059,13 +1059,13 @@ coroutine.wrap(function()
                 repeat
                     task.wait(0.175)
                     if InstanceTp then
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon.Position
                         wait()
                         game.Players.LocalPlayer.Character.Humanoid.Health = 0
                         repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon.Position
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon.Position
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon.Position
                     else
                         break
                     end
