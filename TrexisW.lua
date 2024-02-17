@@ -1341,9 +1341,8 @@ do
     AutoStoreFruit:OnChanged(function()
         while Options.AutoRandomFruit.Value do
             for z,x in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if x:FindFirstChild("EatRemote", true) then
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StoreFruit", x:FindFirstChild("EatRemote", true).Parent:GetAttribute("OriginalName"), game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(x.Name))
-                    end
+                if x:FindFirstChild("EatRemote", true) then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StoreFruit", x:FindFirstChild("EatRemote", true).Parent:GetAttribute("OriginalName"), game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(x.Name))
                 end
             end
         end
