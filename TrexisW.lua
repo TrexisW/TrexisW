@@ -1025,8 +1025,8 @@ coroutine.wrap(function()
                 if v and v.Name == tostring(NameMon) and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and FirstMob and FirstMob:FindFirstChild("HumanoidRootPart") then
                     v:FindFirstChild("HumanoidRootPart").CFrame = FirstMob:FindFirstChild("HumanoidRootPart").CFrame
                     v.HumanoidRootPart.CanCollide = false
-                    v.WalkSpeed = 0
-                    v.JumpPower = 0
+                    v.Humanoid.WalkSpeed = 0
+                    v.Humanoid.JumpPower = 0
                 end
             end
         end
@@ -1038,9 +1038,7 @@ coroutine.wrap(function()
     while task.wait() do
         if getgenv().AutoFarmLevel then
             CheckLevel()
-            repeat
-                task.wait()
-            until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 3000
+            task.wait(0.657)
             if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                 tpwithnewtpbyme2(CFrameQ, 5)
                 task.wait(1)
