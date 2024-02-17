@@ -5,6 +5,8 @@ local QuestLv = nil
 local NameMon = nil
 local CFrameQ = nil
 local CFrameMon = nil
+local CFrameTargetTp = nil
+local SelectTpSpot = nil
 local MobHumP = nil
 local FirstMob = nil
 local BringMob = false
@@ -25,6 +27,177 @@ elseif placeId == 4442272183 then
     New_World = true
 elseif placeId == 7449423635 then
     Third_World = true
+end
+local function TpOfTpTab()
+    if Old_World then
+        if SelectTpSpot == "Pirate Starter" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(994.9686279296875, 16.641939163208008, 1427.6319580078125)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Marine Starter" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(-2645.46142578125, 9.68152904510498, 2048.440673828125)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Middle Town" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(-622.5928955078125, 8.339500427246094, 1559.7164306640625)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Jungle" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(-1613.74365234375, 36.977413177490234, 148.67115783691406)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Pirate Village" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(-1146.427734375, 44.877357482910156, 3846.61328125)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Dessert" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(924.7705078125, 6.146862983703613, 4329.72314453125)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Frozen Village" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(1120.902587890625, 7.670980930328369, -1189.6358642578125)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Marine Fortress" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(-5034.90771484375, 27.965608596801758, 4334.7890625)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Skyland 1st" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(-5009.7939453125, 281.7386169433594, -2830.664306640625)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Skyland 2nd" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(-5270.48583984375, 395.70489501953125, -2212.401123046875)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Skyland 3rd" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(-4771.7998046875, 718.5603637695312, -2621.241455078125)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Skyland 4th" then
+            if InstanceTp then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+            else
+                CFrameTargetTp = CFrame.new(value)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Skyland 5th" then
+            if InstanceTp then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+            else
+                CFrameTargetTp = CFrame.new(value)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+                end
+            end
+        elseif SelectTpSpot == "Colosseum" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(-1536.6083984375, 8.051512718200684, -2983.515380859375)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Prison" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(4867.283203125, 6.470325469970703, 732.0301513671875)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "UnderWater" then
+            if InstanceTp then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+            else
+                CFrameTargetTp = CFrame.new(value)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+                end
+            end
+        elseif SelectTpSpot == "Magme Village" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(-5236.81201171875, 7.995201587677002, 8450.7021484375)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        elseif SelectTpSpot == "Fountain City" then
+            if InstanceTp then
+
+            else
+                CFrameTargetTp = CFrame.new(5105.4208984375, 4.3343119621276855, 4074.138671875)
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+                end
+            end
+        end
+    elseif New_World then
+
+    elseif Third_World then
+
+    end
 end
 local function CheckLevel()
     local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
@@ -840,6 +1013,9 @@ coroutine.wrap(function()
             for _,v in pairs(workspace.Enemies:GetChildren()) do
                 if v and v.Name == tostring(NameMon) and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and FirstMob and FirstMob:FindFirstChild("HumanoidRootPart") then
                     v:FindFirstChild("HumanoidRootPart").CFrame = FirstMob:FindFirstChild("HumanoidRootPart").CFrame
+                    v.HumanoidRootPart.CanCollide = false
+                    v.WalkSpeed = 0
+                    v.JumpPower = 0
                 end
             end
         end
@@ -958,6 +1134,7 @@ local Window = Fluent:CreateWindow({
 
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "Main" }),
+    TpTab = Window:AddTab({ Title = "Teleport", Icon = "" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -1052,6 +1229,31 @@ do
             task.wait()     
         end
     end)
+
+    Tabs.TpTab:AddSection("Teleport")
+    local WhereToTp = Tabs.TpTab:AddDropdown("WhereToTp", {
+        Title = "Select Location",
+        Values = {"Pirate Starter", "Marine Starter", "Middle Town", "Jungle", "Pirate Village", "Desert", "Frozen Village", "Marine Fortress", "Skyland 1st", "Skyland 2nd", "Skyland 3rd", "Skyland 4th", "Skyland 5th", "Colosseum", "Prison", "Underwater", "Magma Village", "Fountain City"},
+        Multi = false,
+        Default = 1,
+    })
+
+    WhereToTp:OnChanged(function(Value)
+        SelectTpSpot = Value
+    end)
+    Tabs.TpTab:AddButton({
+        Title = "Teleport",
+        Description = "",
+        Callback = function()
+            TpOfTpTab()
+            if InstanceTp then
+            
+            else
+                task.wait(0.175)
+                tpwithnewtpbyme2(CFrameTargetTp, 5)
+            end
+        end
+    })
 end
 
 if game.CoreGui:FindFirstChild("TTJY HUB") then
