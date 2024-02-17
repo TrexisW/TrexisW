@@ -9,10 +9,7 @@ local MobHumP = nil
 local FirstMob = nil
 local BringMob = false
 local RunService = game:GetService("RunService")
-game:GetService("Workspace").Enemies.ChildAdded:Connect(function(child)
-    wait(0.175)
-    child.Humanoid.Animator:Destroy()
-end)
+getgenv().RemoveAnim = false
 getgenv().AuraMaterialType1 = false
 getgenv().AutoMaterial = false
 getgenv().AutoFarmLevel = false
@@ -812,6 +809,18 @@ while RunService.Stepped:Wait() do
     end
 end
 end)
+
+coroutine.wrap(function()
+    while task.wait() do
+        if getgenv().RemoveAnim then
+            for _, v in pairs(workspace.Enemies:GetChildren()) do
+                if v and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and v.Humanoid.Animator then
+                    v.Humanoid.Animator:Destroy()
+                end
+            end
+        end
+    end
+end)()
 coroutine.wrap(function()
     while task.wait() do
         if BringMob then
