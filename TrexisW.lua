@@ -1052,23 +1052,26 @@ end)()
 
 coroutine.wrap(function()
     while task.wait() do
-        repeat
-            task.wait(0.175)
-            if InstanceTp then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
-                wait()
-                game.Players.LocalPlayer.Character.Humanoid.Health = 0
-                repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
-            end
-            task.wait()
-        until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 3000
-
         if getgenv().AutoFarmLevel then
             CheckLevel()
             task.wait(0.657)
+            if Instancetp then
+                repeat
+                    task.wait(0.175)
+                    if InstanceTp then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                        wait()
+                        game.Players.LocalPlayer.Character.Humanoid.Health = 0
+                        repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                    else
+                        break
+                    end
+                    task.wait()
+                until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 3000
+            end
             if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                 tpwithnewtpbyme2(CFrameQ, 5)
                 task.wait(1)
@@ -1287,13 +1290,13 @@ do
             TpOfTpTab()
             task.wait(0.175)
             if InstanceTp then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp.Position
                 wait()
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
                 repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp.Position
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp.Position
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp.Position
             else
                 tpwithnewtpbyme2(CFrameTargetTp, 5)
             end
