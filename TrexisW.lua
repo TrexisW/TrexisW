@@ -9,6 +9,10 @@ local MobHumP = nil
 local FirstMob = nil
 local BringMob = false
 local RunService = game:GetService("RunService")
+game:GetService("Workspace").Enemies.ChildAdded:Connect(function(child)
+    wait(0.175)
+    child.Humanoid.Animator:Destroy()
+end)
 getgenv().AuraMaterialType1 = false
 getgenv().AutoMaterial = false
 getgenv().AutoFarmLevel = false
@@ -821,11 +825,14 @@ coroutine.wrap(function()
             for _,v in pairs(workspace.Enemies:GetChildren()) do
                 if v and v.Name == tostring(NameMon) and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and FirstMob and FirstMob:FindFirstChild("HumanoidRootPart") then
                     v:FindFirstChild("HumanoidRootPart").CFrame = FirstMob:FindFirstChild("HumanoidRootPart").CFrame
+                    v.HumanoidRootPart.Anchored = true
                 end
             end
         end
     end
 end)()
+
+
 coroutine.wrap(function()
     while task.wait() do
         if getgenv().AutoFarmLevel then
@@ -840,7 +847,6 @@ coroutine.wrap(function()
                     if v and v.Name == tostring(NameMon) then
                         if v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                             Attack = true
-                            warn(NameMon)
                             repeat
                                 MobHumP = v.HumanoidRootPart.Position
                                 tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
@@ -916,7 +922,6 @@ coroutine.wrap(function()
         end
     end
 end)()
-
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
