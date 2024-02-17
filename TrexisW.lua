@@ -6,6 +6,7 @@ local NameMon = nil
 local CFrameQ = nil
 local CFrameMon = nil
 local MobHumP = nil
+local FirstMob = nil
 local RunService = game:GetService("RunService")
 getgenv().AuraMaterialType1 = false
 getgenv().AutoMaterial = false
@@ -806,6 +807,24 @@ while RunService.Stepped:Wait() do
     end
 end
 end)
+coroutine.wrap(function()
+    while task.wait(0.175) do
+        if BringMob then
+            for _, v in pairs(workspace.Enemies:GetChildren()) do
+                if v and v.Name == tostring(NameMon) then
+                    FirstMob = v
+                    break
+                end
+            end
+            task.wait()
+            for _,v in pairs(workspace.Enemies:GetChildren()) do
+                if v and v.Name == tostring(NameMon) and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and FirstMob and FirstMob:FindFirstChild("HumanoidRootPart") then
+                    v:FindFirstChild("HumanoidRootPart").CFrame = FirstMob:FindFirstChild("HumanoidRootPart").CFrame
+                end
+            end
+        end
+    end
+end)()
 coroutine.wrap(function()
     while task.wait() do
         if getgenv().AutoFarmLevel then
