@@ -115,6 +115,7 @@ local function CheckLevel()
             QuestLv = 2
             NameMon = "Dark Master"
             CFrameQ = CFrame.new(-4842.1372070313, 717.69543457031, -2623.0483398438)
+            CFrameMon = CFrame.new(-5357.3515625, 449.032958984375, -2265.667236328125)
             if getgenv().AutoFarmLevel and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
             end 
@@ -856,10 +857,13 @@ coroutine.wrap(function()
             repeat
                 task.wait()
             until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 3000
-            tpwithnewtpbyme2(CFrameQ, 5)
-            task.wait(1)
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-            task.wait(3)
+            if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                tpwithnewtpbyme2(CFrameQ, 5)
+                task.wait(1)
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+                task.wait(.175)
+            end
+            task.wait()
             tpwithnewtpbyme2(CFrameMon, 5)
             repeat
                 for _,v in pairs(workspace.Enemies:GetChildren()) do
