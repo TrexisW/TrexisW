@@ -7,6 +7,7 @@ local CFrameQ = nil
 local CFrameMon = nil
 local MobHumP = nil
 local FirstMob = nil
+local BringMob = false
 local RunService = game:GetService("RunService")
 getgenv().AuraMaterialType1 = false
 getgenv().AutoMaterial = false
@@ -948,6 +949,11 @@ do
 
     FastAttack:OnChanged(function()
         Fast = Options.FastAttack.Value
+    end)
+    local BringMobT = Tabs.Main:AddToggle("BringMobT", {Title = "Bring Mob", Default = false })
+
+    BringMobT:OnChanged(function()
+        BringMob = Options.BringMobT.Value
     end)
 
     Tabs.Main:AddSection("Stats")
