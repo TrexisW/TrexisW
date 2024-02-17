@@ -289,26 +289,20 @@ local function CheckLevel()
             if getgenv().AutoFarmLevel and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
             end
-        elseif Lv == 190 or Lv <= 209 or SelectMonster == "Prisoner [Lv. 190]" then -- Dark Master
+        elseif Lv == 190 or Lv <= 209 or SelectMonster == "Prisoner [Lv. 190]" then -- Prisoner
             Ms = "Prisoner [Lv. 190]"
             NameQuest = "PrisonerQuest"
             QuestLv = 1
             NameMon = "Prisoner"
             CFrameQ = CFrame.new(5308.98828125, 1.7804901599884033, 475.06048583984375)
             CFrameMon = CFrame.new(5164.1083984375, 15.778244972229004, 489.6533508300781)
-            if getgenv().AutoFarmLevel and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
-            end
-        elseif Lv == 210 or Lv <= 249 or SelectMonster == "Dangerous Prisoner [Lv. 210]" then -- Dark Master
+        elseif Lv == 210 or Lv <= 249 or SelectMonster == "Dangerous Prisoner [Lv. 210]" then -- Dangerous Prisoner
             Ms = "Dangerous Prisoner [Lv. 210]"
             NameQuest = "PrisonerQuest"
             QuestLv = 2
-            NameMon = "Prisoner"
+            NameMon = "Dangerous Prisoner"
             CFrameQ = CFrame.new(5308.98828125, 1.7804901599884033, 475.06048583984375)
             CFrameMon = CFrame.new(5564.0322265625, 15.759016036987305, 682.16455078125)
-            if getgenv().AutoFarmLevel and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
-            end
         elseif Lv == 250 or Lv <= 274 or SelectMonster == "Toga Warrior [Lv. 250]" then -- Toga Warrior
             Ms = "Toga Warrior [Lv. 250]"
             NameQuest = "ColosseumQuest"
