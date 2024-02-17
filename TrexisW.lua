@@ -1059,13 +1059,13 @@ coroutine.wrap(function()
                 repeat
                     task.wait(0.175)
                     if InstanceTp then
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon.Position
+                        game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
                         wait()
                         game.Players.LocalPlayer.Character.Humanoid.Health = 0
                         repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon.Position
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon.Position
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon.Position
+                        game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
+                        game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
+                        game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
                     else
                         break
                     end
@@ -1290,13 +1290,13 @@ do
             TpOfTpTab()
             task.wait(0.175)
             if InstanceTp then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp.Position
+                game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameTargetTp)
                 wait()
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
                 repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp.Position
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp.Position
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp.Position
+                game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameTargetTp)
+                game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameTargetTp)
+                game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameTargetTp)
             else
                 tpwithnewtpbyme2(CFrameTargetTp, 5)
             end
