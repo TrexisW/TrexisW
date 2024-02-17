@@ -106,13 +106,18 @@ local function CheckLevel()
             NameMon = "Sky Bandit"
             CFrameQ = CFrame.new(-4842.1372070313, 717.69543457031, -2623.0483398438)
             CFrameMon = CFrame.new(-4955.6411132813, 365.46365356445, -2908.1865234375)
+            if getgenv().AutoFarmLevel and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+            end             
         elseif Lv == 175 or Lv <= 249 or SelectMonster == "Dark Master [Lv. 175]" then -- Dark Master
             Ms = "Dark Master [Lv. 175]"
             NameQuest = "SkyQuest"
             QuestLv = 2
             NameMon = "Dark Master"
             CFrameQ = CFrame.new(-4842.1372070313, 717.69543457031, -2623.0483398438)
-            CFrameMon = CFrame.new(-5148.1650390625, 439.04571533203, -2332.9611816406)
+            if getgenv().AutoFarmLevel and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+            end 
         elseif Lv == 250 or Lv <= 274 or SelectMonster == "Toga Warrior [Lv. 250]" then -- Toga Warrior
             Ms = "Toga Warrior [Lv. 250]"
             NameQuest = "ColosseumQuest"
@@ -835,6 +840,9 @@ coroutine.wrap(function()
                 if v and v.Name == tostring(NameMon) and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and FirstMob and FirstMob:FindFirstChild("HumanoidRootPart") then
                     v:FindFirstChild("HumanoidRootPart").CFrame = FirstMob:FindFirstChild("HumanoidRootPart").CFrame
                     v.HumanoidRootPart.Anchored = true
+                    v.Humanoid:ChangeState(11)
+                    v.Humanoid.JumpPower = 0
+                    v.Humanoid.WalkSpeed = 0
                 end
             end
         end
@@ -846,6 +854,9 @@ coroutine.wrap(function()
     while task.wait() do
         if getgenv().AutoFarmLevel then
             CheckLevel()
+            repeat
+                task.wait()
+            until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 3000
             tpwithnewtpbyme2(CFrameQ, 5)
             task.wait(1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
