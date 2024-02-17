@@ -916,6 +916,78 @@ do
         getgenv().AutoFarmLevel = Options.AutoFarmLevel.Value
         NeedAttacking = Options.AutoFarmLevel.Value
     end)
+
+    Tabs.Main:AddSection("Stats")
+    local MeleeStats = Tabs.Main:AddToggle("MeleeStats", {Title = "Melee", Default = false })
+
+    MeleeStats:OnChanged(function()
+        while Options.MeleeStats.Value do
+            local args = {
+                [1] = "AddPoint",
+                [2] = "Melee",
+                [3] = 1
+            }
+        
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+            task.wait()
+        end
+    end)
+    local DefenseStats = Tabs.Main:AddToggle("GunStats", {Title = "Defense", Default = false })
+
+    DefenseStats:OnChanged(function()
+        while Options.DefenseStats.Value do
+            local args = {
+                [1] = "AddPoint",
+                [2] = "Defense",
+                [3] = 1
+            }
+        
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+            task.wait()
+        end
+    end)
+    local SwordStats = Tabs.Main:AddToggle("SwordStats", {Title = "Sword", Default = false })
+
+    SwordStats:OnChanged(function()
+        while Options.SwordStats.Value do
+            local args = {
+                [1] = "AddPoint",
+                [2] = "Sword",
+                [3] = 1
+            }
+        
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+            task.wait()   
+        end
+    end)
+    local GunStats = Tabs.Main:AddToggle("GunStats", {Title = "Gun", Default = false })
+
+    GunStats:OnChanged(function()
+        while Options.GunStats.Value do
+            local args = {
+                [1] = "AddPoint",
+                [2] = "Gun",
+                [3] = 1
+            }
+        
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+            task.wait()
+        end
+    end)
+    local BloxFruitStats = Tabs.Main:AddToggle("FruitStats", {Title = "Blox Fruit", Default = false })
+
+    BloxFruitStats:OnChanged(function()
+        while Options.BloxFruitStats.Value do
+            local args = {
+                [1] = "AddPoint",
+                [2] = "Demon Fruit",
+                [3] = 1
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer(unpack(args))
+            task.wait()     
+        end
+    end)
 end
 
 if game.CoreGui:FindFirstChild("TTJY HUB") then
