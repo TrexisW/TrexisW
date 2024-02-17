@@ -813,7 +813,7 @@ while RunService.Stepped:Wait() do
 end
 end)
 coroutine.wrap(function()
-    while task.wait(0.175) do
+    while task.wait() do
         if BringMob then
             for _, v in pairs(workspace.Enemies:GetChildren()) do
                 if v and v.Name == tostring(NameMon) then
