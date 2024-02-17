@@ -1052,6 +1052,20 @@ end)()
 
 coroutine.wrap(function()
     while task.wait() do
+        repeat
+            task.wait(0.175)
+            if InstanceTp then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                wait()
+                game.Players.LocalPlayer.Character.Humanoid.Health = 0
+                repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+            end
+            task.wait()
+        until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 3000
+
         if getgenv().AutoFarmLevel then
             CheckLevel()
             task.wait(0.657)
@@ -1271,8 +1285,8 @@ do
         Description = "",
         Callback = function()
             TpOfTpTab()
+            task.wait(0.175)
             if InstanceTp then
-                task.wait(0.175)
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
                 wait()
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
@@ -1281,11 +1295,15 @@ do
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
             else
-                task.wait(0.175)
                 tpwithnewtpbyme2(CFrameTargetTp, 5)
             end
         end
     })
+    local InstanceTeleport = Tabs.Settings:AddToggle("InstanceTeleport", {Title = "Instance Teleport", Default = false })
+
+    InstanceTeleport:OnChanged(function()
+        InstanceTp = Options.InstanceTeleport.Value
+    end)
 end
 
 if game.CoreGui:FindFirstChild("TTJY HUB") then
