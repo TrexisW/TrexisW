@@ -1070,7 +1070,7 @@ coroutine.wrap(function()
                         break
                     end
                     task.wait()
-                until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 500
+                until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 500 and InstanceTp
             end
             task.wait()
             if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
