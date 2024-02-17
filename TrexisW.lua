@@ -771,8 +771,8 @@ local function tpwithnewtpbyme2(xyz,speedoftpNTP)
     local distance = (targetPos - currentPos).Magnitude
     local steps = math.floor(distance / speedoftpNTP) 
     for i = 1, steps do
-        if not game.Players.LocalPlayer.Character.Humanoid then
-            repeat task.wait(0.175) until game.Players.LocalPlayer.Character.Humanoid
+        if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+            repeat task.wait(0.175) until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
         end
         currentPos = currentPos + direction * speedoftpNTP 
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
@@ -1062,7 +1062,7 @@ coroutine.wrap(function()
             if InstanceTp then
                 repeat
                     wait(0.175)
-                    if InstanceTp and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 500 then
+                    if InstanceTp and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
                         game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
                         wait()
                         game.Players.LocalPlayer.Character.Humanoid.Health = 0
@@ -1074,10 +1074,10 @@ coroutine.wrap(function()
                         break
                     end
                     wait()
-                until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 500 and InstanceTp
+                until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 3000 and InstanceTp
             end
             task.wait()
-            repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
+            repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
             if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                 tpwithnewtpbyme2(CFrameQ, 5)
                 task.wait(1)
@@ -1092,7 +1092,7 @@ coroutine.wrap(function()
                         if v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                             Attack = true
                             repeat
-                                repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
+                                repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
                                 MobHumP = v.HumanoidRootPart.Position
                                 tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
                                 wait()
