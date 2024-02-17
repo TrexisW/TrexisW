@@ -771,6 +771,9 @@ local function tpwithnewtpbyme2(xyz,speedoftpNTP)
     local distance = (targetPos - currentPos).Magnitude
     local steps = math.floor(distance / speedoftpNTP) 
     for i = 1, steps do
+        if not game.Players.LocalPlayer.Character.Humanoid then
+            repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
+        end
         currentPos = currentPos + direction * speedoftpNTP 
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
         task.wait()
