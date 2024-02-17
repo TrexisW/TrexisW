@@ -5,6 +5,7 @@ local QuestLv = nil
 local NameMon = nil
 local CFrameQ = nil
 local CFrameMon = nil
+local MobHumP = nil
 local RunService = game:GetService("RunService")
 getgenv().AuraMaterialType1 = false
 getgenv().AutoMaterial = false
@@ -589,14 +590,14 @@ Part.Transparency = 1
 Part.Parent = workspace
 
 local function updatePartPosition()
-local character = game.Players.LocalPlayer.Character
-local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+    local character = game.Players.LocalPlayer.Character
+    local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
 
-if humanoidRootPart and float then
-Part.CFrame = humanoidRootPart.CFrame * CFrame.new(0, -3.5, 0)
-else
-Part.CFrame = CFrame.new(0, -10000, 0)
-end
+    if humanoidRootPart and float then
+        Part.CFrame = humanoidRootPart.CFrame * CFrame.new(0, -3.55, 0)
+    else
+        Part.CFrame = CFrame.new(0, -10000, 0)
+    end
 end
 
 game:GetService("RunService").RenderStepped:Connect(updatePartPosition)
@@ -809,7 +810,6 @@ coroutine.wrap(function()
     while task.wait() do
         if getgenv().AutoFarmLevel then
             CheckLevel()
-            float = true
             tpwithnewtpbyme2(CFrameQ, 5)
             task.wait(1)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
@@ -819,10 +819,10 @@ coroutine.wrap(function()
                 for _,v in pairs(workspace.Enemies:GetChildren()) do
                     if v and v.Name == tostring(NameMon) then
                         if v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and getgenv().AutoFarmLevel and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                            local MobHumP = v.HumanoidRootPart.Position
                             Attack = true
                             warn(NameMon)
                             repeat
+                                MobHumP = v.HumanoidRootPart.Position
                                 tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
                                 wait()
                             until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not getgenv().AutoFarmLevel
@@ -840,7 +840,6 @@ end)()
 coroutine.wrap(function()
     while task.wait() do
         if getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
-            float = true
             if getgenv().CustomQuest then
                 tpwithnewtpbyme2(CFrameQ, 5)
                 task.wait(1)
@@ -854,11 +853,11 @@ coroutine.wrap(function()
                 repeat
                     for _,v in pairs(workspace.Enemies:GetChildren()) do
                         if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 and getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
-                            local MobHumP = v.HumanoidRootPart.Position
                             Attack = true
                             repeat
-                            tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
-                            wait()
+                                MobHumP = v.HumanoidRootPart.Position
+                                tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
+                                wait()
                             until v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
                         end
                     end
@@ -869,11 +868,11 @@ coroutine.wrap(function()
                 repeat
                     for _,v in pairs(workspace.Enemies:GetChildren()) do
                         if v and v.Name == NameMon and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 and getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
-                            local MobHumP = v.HumanoidRootPart.Position
                             Attack = true
                             repeat
-                            tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
-                            wait()
+                                MobHumP = v.HumanoidRootPart.Position
+                                tpwithnewtpbyme(MobHumP.X,MobHumP.Y + 50,MobHumP.Z, 10)
+                                wait()
                             until v.Humanoid.Health == 0 or not getgenv().AutoMaterial
                         end
                     end
