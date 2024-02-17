@@ -601,7 +601,7 @@ end
 
 game:GetService("RunService").RenderStepped:Connect(updatePartPosition)
 DamageAura = true
-Fast = true
+Fast = false
 NeedAttacking = false
 -- \\ GetHits / Canhits // --
 getHits = function(Size)
@@ -916,6 +916,11 @@ do
         getgenv().AutoFarmLevel = Options.AutoFarmLevel.Value
         NeedAttacking = Options.AutoFarmLevel.Value
     end)
+    local FastAttack = Tabs.Main:AddToggle("FastAttack", {Title = "Fast Attack", Default = false })
+
+    FastAttack:OnChanged(function()
+        Fast = Options.FastAttack.Value
+    end)
 
     Tabs.Main:AddSection("Stats")
     local MeleeStats = Tabs.Main:AddToggle("MeleeStats", {Title = "Melee", Default = false })
@@ -932,7 +937,7 @@ do
             task.wait()
         end
     end)
-    local DefenseStats = Tabs.Main:AddToggle("GunStats", {Title = "Defense", Default = false })
+    local DefenseStats = Tabs.Main:AddToggle("DefenseStats", {Title = "Defense", Default = false })
 
     DefenseStats:OnChanged(function()
         while Options.DefenseStats.Value do
@@ -974,7 +979,7 @@ do
             task.wait()
         end
     end)
-    local BloxFruitStats = Tabs.Main:AddToggle("FruitStats", {Title = "Blox Fruit", Default = false })
+    local BloxFruitStats = Tabs.Main:AddToggle("BloxFruitStats", {Title = "Blox Fruit", Default = false })
 
     BloxFruitStats:OnChanged(function()
         while Options.BloxFruitStats.Value do
