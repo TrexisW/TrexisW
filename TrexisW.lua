@@ -840,9 +840,6 @@ coroutine.wrap(function()
             for _,v in pairs(workspace.Enemies:GetChildren()) do
                 if v and v.Name == tostring(NameMon) and v:FindFirstChild("Humanoid") and v.Humanoid.Health ~= 0 and FirstMob and FirstMob:FindFirstChild("HumanoidRootPart") then
                     v:FindFirstChild("HumanoidRootPart").CFrame = FirstMob:FindFirstChild("HumanoidRootPart").CFrame
-                    v.HumanoidRootPart.Anchored = true
-                    v.Humanoid.JumpPower = 0
-                    v.Humanoid.WalkSpeed = 0
                 end
             end
         end
