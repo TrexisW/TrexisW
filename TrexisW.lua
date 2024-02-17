@@ -316,7 +316,7 @@ local function CheckLevel()
             QuestLv = 2
             NameMon = "Gladiator"
             CFrameQ = CFrame.new(-1577.7890625, 7.4151420593262, -2984.4838867188)
-            CFrameMon = CFrame.new(-1521.3740234375, 81.203170776367, -3066.3139648438)
+            CFrameMon = CFrame.new(-1324.32666015625, 58.49076843261719, -3242.227294921875)
         elseif Lv == 300 or Lv <= 329 or SelectMonster == "Military Soldier [Lv. 300]" then -- Military Soldier
             Ms = "Military Soldier [Lv. 300]"
             NameQuest = "MagmaQuest"
@@ -746,19 +746,19 @@ local function CheckLevel()
     end
 end
 local function tpwithnewtpbyme(a,b,c,speedoftpNTP)
-local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
-local p = hrd.Position
-local currentPos = Vector3.new(p.x, p.y, p.z)
-local targetPos = Vector3.new(a, b, c)
+    local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local p = hrd.Position
+    local currentPos = Vector3.new(p.x, p.y, p.z)
+    local targetPos = Vector3.new(a, b, c)
 
-local direction = (targetPos - currentPos).Unit
-local distance = (targetPos - currentPos).Magnitude
-local steps = math.floor(distance / speedoftpNTP) 
-for i = 1, steps do
-currentPos = currentPos + direction * speedoftpNTP 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
-task.wait()
-end
+    local direction = (targetPos - currentPos).Unit
+    local distance = (targetPos - currentPos).Magnitude
+    local steps = math.floor(distance / speedoftpNTP) 
+    for i = 1, steps do
+    currentPos = currentPos + direction * speedoftpNTP 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+    task.wait()
+    end
 end
 local function tpwithnewtpbyme2(xyz,speedoftpNTP)
     local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
@@ -775,6 +775,22 @@ local function tpwithnewtpbyme2(xyz,speedoftpNTP)
         task.wait()
     end
 end
+local function tpwithnewtpbyme3(part,speedoftpNTP)
+    local Targetpart = part
+    local p = part.Position
+    local currentPos = Vector3.new(p.X, p.Y, p.Z)
+    local targetPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+    local direction = (targetPos - currentPos).Unit
+    local distance = (targetPos - currentPos).Magnitude
+    local steps = math.floor(distance / speedoftpNTP) 
+    for i = 1, steps do
+        currentPos = currentPos + direction * speedoftpNTP 
+        part.Position = currentPos
+        task.wait()
+    end
+end
+task.wait(3)
 local Part = Instance.new("Part")
 Part.Size = Vector3.new(2, 0.2, 1.5)
 Part.Material = Enum.Material.Grass
@@ -1256,7 +1272,14 @@ do
         Callback = function()
             TpOfTpTab()
             if InstanceTp then
-            
+                task.wait(0.175)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
+                wait()
+                game.Players.LocalPlayer.Character.Humanoid.Health = 0
+                repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameTargetTp
             else
                 task.wait(0.175)
                 tpwithnewtpbyme2(CFrameTargetTp, 5)
