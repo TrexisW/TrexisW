@@ -10,6 +10,7 @@ local SelectTpSpot = nil
 local MobHumP = nil
 local FirstMob = nil
 local BringMob = false
+local InstanceTp
 local RunService = game:GetService("RunService")
 getgenv().RemoveAnim = false
 getgenv().AuraMaterialType1 = false
@@ -1055,7 +1056,7 @@ coroutine.wrap(function()
         if getgenv().AutoFarmLevel then
             CheckLevel()
             task.wait(0.657)
-            if Instancetp then
+            if InstanceTp then
                 print("1")
                 repeat
                     wait(0.175)
