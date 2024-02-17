@@ -1056,23 +1056,32 @@ coroutine.wrap(function()
             CheckLevel()
             task.wait(0.657)
             if Instancetp then
+                print("1")
                 repeat
-                    task.wait(0.175)
-                    if InstanceTp then
+                    wait(0.175)
+                    print("2")
+                    if InstanceTp and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 500 then
+                        print("3")
                         game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
                         wait()
                         game.Players.LocalPlayer.Character.Humanoid.Health = 0
+                        print("4")
                         repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
+                        print("5")
                         game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
                         game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
                         game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrameMon)
+                        print("6")
                     else
                         break
                     end
-                    task.wait()
+                    wait()
+                    print("7")
                 until (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 500 and InstanceTp
+                print("8")
             end
             task.wait()
+            print("9")
             if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                 tpwithnewtpbyme2(CFrameQ, 5)
                 task.wait(1)
@@ -1276,7 +1285,7 @@ do
     Tabs.TpTab:AddSection("Teleport")
     local WhereToTp = Tabs.TpTab:AddDropdown("WhereToTp", {
         Title = "Select Location",
-        Values = {"Pirate Starter", "Marine Starter", "Middle Town", "Jungle", "Pirate Village", "Desert", "Frozen Village", "Marine Fortress", "Skyland 1st", "Skyland 2nd", "Skyland 3rd", "Skyland 4th", "Skyland 5th", "Colosseum", "Prison", "Underwater", "Magma Village", "Fountain City"},
+        Values = {"Pirate Starter", "Marine Starter", "Middle Town", "Jungle", "Pirate Village", "Dessert", "Frozen Village", "Marine Fortress", "Skyland 1st", "Skyland 2nd", "Skyland 3rd", "Skyland 4th", "Skyland 5th", "Colosseum", "Prison", "Underwater", "Magma Village", "Fountain City"},
         Multi = false,
         Default = 1,
     })
