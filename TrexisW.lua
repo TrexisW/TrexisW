@@ -35,7 +35,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(994.9686279296875, 16.641939163208008, 1427.6319580078125)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -44,7 +44,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(-2645.46142578125, 9.68152904510498, 2048.440673828125)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -53,7 +53,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(-622.5928955078125, 8.339500427246094, 1559.7164306640625)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -62,7 +62,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(-1613.74365234375, 36.977413177490234, 148.67115783691406)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -71,7 +71,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(-1146.427734375, 44.877357482910156, 3846.61328125)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -80,7 +80,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(924.7705078125, 6.146862983703613, 4329.72314453125)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -89,7 +89,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(1120.902587890625, 7.670980930328369, -1189.6358642578125)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -98,7 +98,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(-5034.90771484375, 27.965608596801758, 4334.7890625)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -107,7 +107,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(-5009.7939453125, 281.7386169433594, -2830.664306640625)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -116,7 +116,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(-5270.48583984375, 395.70489501953125, -2212.401123046875)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -125,7 +125,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(-4771.7998046875, 718.5603637695312, -2621.241455078125)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -150,7 +150,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(-1536.6083984375, 8.051512718200684, -2983.515380859375)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -159,7 +159,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(4867.283203125, 6.470325469970703, 732.0301513671875)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -176,7 +176,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(-5236.81201171875, 7.995201587677002, 8450.7021484375)
-                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -185,7 +185,7 @@ local function TpOfTpTab()
 
             else
                 CFrameTargetTp = CFrame.new(5105.4208984375, 4.3343119621276855, 4074.138671875)
-                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 6000 then
+                if (CFrameTargetTp - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
                 end
             end
@@ -279,7 +279,7 @@ local function CheckLevel()
             if getgenv().AutoFarmLevel and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
             end             
-        elseif Lv == 175 or Lv <= 249 or SelectMonster == "Dark Master [Lv. 175]" then -- Dark Master
+        elseif Lv == 175 or Lv <= 189 or SelectMonster == "Dark Master [Lv. 175]" then -- Dark Master
             Ms = "Dark Master [Lv. 175]"
             NameQuest = "SkyQuest"
             QuestLv = 2
@@ -289,16 +289,26 @@ local function CheckLevel()
             if getgenv().AutoFarmLevel and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
             end
-        elseif Lv == 200 or Lv <= 249 or SelectMonster == "Dark Master [Lv. 175]" then -- Dark Master
-            Ms = "Dark Master [Lv. 175]"
-            NameQuest = "SkyQuest"
-            QuestLv = 2
-            NameMon = "Dark Master"
-            CFrameQ = CFrame.new(-4842.1372070313, 717.69543457031, -2623.0483398438)
-            CFrameMon = CFrame.new(-5357.3515625, 449.032958984375, -2265.667236328125)
+        elseif Lv == 190 or Lv <= 209 or SelectMonster == "Prisoner [Lv. 190]" then -- Dark Master
+            Ms = "Prisoner [Lv. 190]"
+            NameQuest = "PrisonerQuest"
+            QuestLv = 1
+            NameMon = "Prisoner"
+            CFrameQ = CFrame.new(5308.98828125, 1.7804901599884033, 475.06048583984375)
+            CFrameMon = CFrame.new(5164.1083984375, 15.778244972229004, 489.6533508300781)
             if getgenv().AutoFarmLevel and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
-            end 
+            end
+        elseif Lv == 210 or Lv <= 249 or SelectMonster == "Dangerous Prisoner [Lv. 210]" then -- Dark Master
+            Ms = "Dangerous Prisoner [Lv. 210]"
+            NameQuest = "PrisonerQuest"
+            QuestLv = 2
+            NameMon = "Prisoner"
+            CFrameQ = CFrame.new(5308.98828125, 1.7804901599884033, 475.06048583984375)
+            CFrameMon = CFrame.new(5564.0322265625, 15.759016036987305, 682.16455078125)
+            if getgenv().AutoFarmLevel and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.82275390625, 874.3905029296875, -1667.556884765625))
+            end
         elseif Lv == 250 or Lv <= 274 or SelectMonster == "Toga Warrior [Lv. 250]" then -- Toga Warrior
             Ms = "Toga Warrior [Lv. 250]"
             NameQuest = "ColosseumQuest"
