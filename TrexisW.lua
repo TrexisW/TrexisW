@@ -18,6 +18,10 @@ getgenv().AutoMaterial = false
 getgenv().AutoFarmLevel = false
 getgenv().CustomQuest = false
 getgenv().Attack = false
+getgenv().AllSetting = {
+    TpToFruit = false,
+    CancelTpToFruit = false
+}
 Old_World = false
 New_World = false
 Third_World = false
@@ -756,9 +760,12 @@ local function tpwithnewtpbyme(a,b,c,speedoftpNTP)
     local distance = (targetPos - currentPos).Magnitude
     local steps = math.floor(distance / speedoftpNTP) 
     for i = 1, steps do
-    currentPos = currentPos + direction * speedoftpNTP 
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
-    task.wait()
+        if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+            repeat task.wait(0.175) until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+        end
+        currentPos = currentPos + direction * speedoftpNTP 
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+        task.wait()
     end
 end
 local function tpwithnewtpbyme2(xyz,speedoftpNTP)
@@ -1108,6 +1115,7 @@ coroutine.wrap(function()
         end
     end
 end)()
+--[[
 coroutine.wrap(function()
     while task.wait() do
         if getgenv().AuraMaterialType1 and getgenv().AutoMaterial then
@@ -1156,6 +1164,37 @@ coroutine.wrap(function()
         end
     end
 end)()
+--]]
+coroutine.wrap(function()
+    while task.wait() do
+        if getgenv().AllSetting.TpToFruit then
+            function tpwithnewtpbyfruit(a,b,c,speedoftpNTP)
+                local hrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+                local p = hrd.Position
+                local currentPos = Vector3.new(p.x, p.y, p.z)
+                local targetPos = Vector3.new(a, b, c)
+            
+                local direction = (targetPos - currentPos).Unit
+                local distance = (targetPos - currentPos).Magnitude
+                local steps = math.floor(distance / speedoftpNTP) 
+                for i = 1, steps do
+                    if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+                        repeat task.wait(0.175) until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+                    end
+                    currentPos = currentPos + direction * speedoftpNTP 
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPos)
+                    task.wait()
+                end
+            end
+            for _, v in pairs(workspace:GetChildren()) do
+                if v and v.Name == "Fruit " then
+                    tpwithnewtpbyfruit(v.Fruit.Fruit.Handle.Position.X, v.Fruit.Fruit.Handle.Position.Y, v.Fruit.Fruit.Handle.Position.Z, 5)
+                    break
+                end
+            end
+        end
+    end
+end)()
 coroutine.wrap(function()
     while task.wait() do
         if getgenv().AutoFarmLevel or getgenv().AuraMaterialType1 or getgenv().AutoMaterial then
@@ -1167,6 +1206,7 @@ coroutine.wrap(function()
         end
     end
 end)()
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -1182,8 +1222,11 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "Main" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    PlayerTab = Window:AddTab({ Title = "Player", Icon = "" }),
     TpTab = Window:AddTab({ Title = "Teleport", Icon = "" }),
+    ShopTab = Window:AddTab({ Title = "Shop", Icon = "" }),
+    Credits = Window:AddTab({ Title = "Credits", Icon = "" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -1279,6 +1322,45 @@ do
         end
     end)
 
+    Tabs.Main:AddSection("Fruit")
+    local TeleportFruit = Tabs.Main:AddToggle("TeleportFruit", {Title = "Teleport To Fruit", Default = false })
+
+    TeleportFruit:OnChanged(function()
+        getgenv().AllSetting.TpToFruit = Options.TeleportFruit.Value
+    end)
+    local AutoRandomFruit = Tabs.Main:AddToggle("AutoRandomFruit", {Title = "Auto Spin Fruit", Default = false })
+
+    AutoRandomFruit:OnChanged(function()
+        while Options.AutoRandomFruit.Value do
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+            task.wait(1)
+        end
+    end)
+    local AutoStoreFruit = Tabs.Main:AddToggle("AutoStoreFruit", {Title = "Auto Store Fruit", Default = false })
+
+    AutoStoreFruit:OnChanged(function()
+        while Options.AutoRandomFruit.Value do
+            for z,x in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if x:FindFirstChild("EatRemote", true) then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StoreFruit", x:FindFirstChild("EatRemote", true).Parent:GetAttribute("OriginalName"), game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(x.Name))
+                    end
+                end
+            end
+        end
+    end)
+    local AutoDropFruit = Tabs.Main:AddToggle("AutoDropFruit", {Title = "Auto Drop Fruit", Default = false })
+
+    AutoDropFruit:OnChanged(function()
+        while Options.AutoRandomFruit.Value do
+            for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                if v:FindFirstChild("EatRemote", true) then
+                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(v.Name)
+                    wait()
+                    game:GetService("Players").LocalPlayer.Character:FindFirstChild(v.Name).EatRemote:InvokeServer("Drop")
+                end
+            end
+        end
+    end)
     Tabs.TpTab:AddSection("Teleport")
     local WhereToTp = Tabs.TpTab:AddDropdown("WhereToTp", {
         Title = "Select Location",
